@@ -1762,7 +1762,6 @@ public class GetMapIntegrationTest extends WMSTestSupport {
 
         StyleInfo sInfo = catalog.getLayerByName(giantPolygon.getName()).getDefaultStyle();
         LegendInfoImpl legend = new LegendInfoImpl();
-        legend.setOnlineResource("org/geoserver/wms/red_fill.png");
         legend.setFormat("image/png;charset=utf-8");
         legend.setHeight(32);
         legend.setWidth(32);

@@ -13,6 +13,7 @@ import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.awt.image.IndexColorModel;
+import java.awt.image.RenderedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -77,7 +78,6 @@ public class LegendDecoration extends AbstractDispatcherCallback implements MapD
         double dpi = RendererUtilities.getDpi(mapContext.getRequest().getFormatOptions());
         double standardDpi = RendererUtilities.getDpi(Collections.emptyMap());
         double scaleFactor = dpi / standardDpi;
-
         List<LayerLegend> layerLegends = getLayerLegend(g2d, mapContext, null);
 
         legends.set(layerLegends);
@@ -253,17 +253,23 @@ public class LegendDecoration extends AbstractDispatcherCallback implements MapD
                         .filter(predicate)
                         .findFirst()
                         .orElseGet(() -> defaultStyle);
-        int w;
-        int h;
-        if (size != null) {
-            w = (int) size.getWidth();
-            h = (int) size.getHeight();
-        } else {
-            w = sInfo.getLegend().getWidth();
-            h = sInfo.getLegend().getHeight();
+
+        LegendInfo legend = sInfo.getLegend();
+        // if there is no online resource symbol size is computed in
+        // the buffered legend graphic builder
+        if (legend != null && legend.getOnlineResource() != null) {
+            // if present takes the size passed into the decorator
+            if (size != null) {
+                request.setWidth((int) size.getWidth());
+                request.setHeight((int) size.getHeight());
+            } else {
+                request.setWidth(legend.getWidth());
+                request.setHeight(legend.getHeight());
+            }
         }
-        request.setWidth(w);
-        request.setHeight(h);
+
+        // using featureSource schema name because LegendRequest Name attribute
+        // has been set from it
         GetLegendGraphicRequest.LegendRequest legendReq =
                 request.getLegend(layer.getFeatureSource().getSchema().getName());
         legendReq.setLayerInfo(info);
