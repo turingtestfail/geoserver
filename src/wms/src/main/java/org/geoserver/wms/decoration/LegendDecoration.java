@@ -78,7 +78,7 @@ public class LegendDecoration extends AbstractDispatcherCallback implements MapD
         double standardDpi = RendererUtilities.getDpi(Collections.emptyMap());
         double scaleFactor = dpi / standardDpi;
 
-        List<LayerLegend> layerLegends = getLayerLegend(g2d, mapContext);
+        List<LayerLegend> layerLegends = getLayerLegend(g2d, mapContext, null);
 
         legends.set(layerLegends);
 
@@ -126,7 +126,9 @@ public class LegendDecoration extends AbstractDispatcherCallback implements MapD
         // (cause a custom legend size and findOptimalSize has not been called)
         // they are produced here
         List<LayerLegend> legends =
-                this.legends.get() != null ? this.legends.get() : getLayerLegend(g2d, mapContext);
+                this.legends.get() != null
+                        ? this.legends.get()
+                        : getLayerLegend(g2d, mapContext, paintArea);
         double dpi = RendererUtilities.getDpi(mapContext.getRequest().getFormatOptions());
         double standardDpi = RendererUtilities.getDpi(Collections.emptyMap());
         double scaleFactor = dpi / standardDpi;
@@ -228,7 +230,7 @@ public class LegendDecoration extends AbstractDispatcherCallback implements MapD
         }
     }
 
-    private void setLegendInfo(Layer layer, GetLegendGraphicRequest request) {
+    private void setLegendInfo(Layer layer, GetLegendGraphicRequest request, Rectangle size) {
         // online resource handling
         LayerInfo info = wms.getLayerByName(layer.getTitle());
         StyleInfo defaultStyle = info.getDefaultStyle();
@@ -251,6 +253,17 @@ public class LegendDecoration extends AbstractDispatcherCallback implements MapD
                         .filter(predicate)
                         .findFirst()
                         .orElseGet(() -> defaultStyle);
+        int w;
+        int h;
+        if (size != null) {
+            w = (int) size.getWidth();
+            h = (int) size.getHeight();
+        } else {
+            w = sInfo.getLegend().getWidth();
+            h = sInfo.getLegend().getHeight();
+        }
+        request.setWidth(w);
+        request.setHeight(h);
         GetLegendGraphicRequest.LegendRequest legendReq =
                 request.getLegend(layer.getFeatureSource().getSchema().getName());
         legendReq.setLayerInfo(info);
@@ -267,7 +280,8 @@ public class LegendDecoration extends AbstractDispatcherCallback implements MapD
         public GetLegendGraphicRequest request;
     }
 
-    private List<LayerLegend> getLayerLegend(Graphics2D g2d, WMSMapContent mapContext) {
+    private List<LayerLegend> getLayerLegend(
+            Graphics2D g2d, WMSMapContent mapContext, Rectangle size) {
         List<LayerLegend> legendLayers = new ArrayList<>();
         double scaleDenominator = mapContext.getScaleDenominator(true);
         for (Layer layer : mapContext.layers()) {
@@ -293,7 +307,7 @@ public class LegendDecoration extends AbstractDispatcherCallback implements MapD
                 request.setKvp(dispatcherRequest.getKvp());
                 request.setRawKvp(dispatcherRequest.getRawKvp());
             }
-            setLegendInfo(layer, request);
+            setLegendInfo(layer, request, size);
 
             Map legendOptions = new CaseInsensitiveMap(options);
             legendOptions.putAll(mapContext.getRequest().getFormatOptions());
