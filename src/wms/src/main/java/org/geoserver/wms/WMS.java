@@ -1290,6 +1290,7 @@ public class WMS implements ApplicationContextAware {
 
         List<Object> dates = getNearestMatches(coverage, time, queryRanges, ResourceInfo.TIME);
         dates.stream()
+                .filter(d -> d instanceof Date)
                 .forEach(
                         d -> {
                             Date date = (Date) d;
