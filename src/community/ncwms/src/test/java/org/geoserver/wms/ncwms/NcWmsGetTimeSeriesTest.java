@@ -35,6 +35,9 @@ public class NcWmsGetTimeSeriesTest extends WMSDimensionsTestSupport {
     static final String BASE_URL_3857 =
             "wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetTimeSeries&FORMAT=image%2Fjpeg&QUERY_LAYERS=watertemp&STYLES&LAYERS=watertemp&FEATURE_COUNT=50&X=50&Y=50&SRS=EPSG%3A3857&WIDTH=101&HEIGHT=101&BBOX=1007839.2841354463%2C5039196.420677232%2C1254607.205826792%2C5285964.342368577";
 
+    static final String BASE_URL_4326_TIME_SERIES =
+            "wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetTimeSeries&FORMAT=image%2Fjpeg&LAYERS=timeseries&QUERY_LAYERS=timeseries&STYLES&&FEATURE_COUNT=50&X=50&Y=50&SRS=EPSG%3A4326&WIDTH=101&HEIGHT=101&BBOX=3.724365234375%2C40.81420898437501%2C5.943603515625%2C43.03344726562501";
+
     static final String TIME_RANGE_COMPLETE =
             "&TIME=2008-10-31T00:00:00.000Z/2008-11-01T00:00:00.000Z";
 
@@ -48,6 +51,8 @@ public class NcWmsGetTimeSeriesTest extends WMSDimensionsTestSupport {
 
     static final String TIME_RANGE_SLICE2 =
             "&TIME=2008-11-01T00:00:00.000Z/2008-11-01T00:00:00.000Z";
+
+    static final String TIME_RANGE1_TIME_SERIES = "&TIME=2014-01-01/2016-01-01";
 
     static final String BASE_URL_4326_TIMESERIES =
             "wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetTimeSeries&FORMAT=image%2Fjpeg&LAYERS=timeseries&QUERY_LAYERS=timeseries&STYLES&&FEATURE_COUNT=50&X=50&Y=50&SRS=EPSG%3A4326&WIDTH=101&HEIGHT=101&BBOX=3.724365234375%2C40.81420898437501%2C5.943603515625%2C43.03344726562501";
@@ -400,7 +405,7 @@ public class NcWmsGetTimeSeriesTest extends WMSDimensionsTestSupport {
     @Test
     public void testTimeRangesNearestWithSimpleRange() throws Exception {
         setupRasterDimension(
-                WATTEMP,
+                TIMESERIES,
                 ResourceInfo.TIME,
                 DimensionPresentation.LIST,
                 null,
@@ -408,21 +413,27 @@ public class NcWmsGetTimeSeriesTest extends WMSDimensionsTestSupport {
                 "degrees",
                 true,
                 null);
-        String url = BASE_URL_4326 + CSV_FORMAT + TIME_RANGE_COMPLETE;
+        String url = BASE_URL_4326_TIME_SERIES + CSV_FORMAT + TIME_RANGE1_TIME_SERIES;
         String rawCsv = getAsString(url);
         String[] csvLines = rawCsv.split("\\r?\\n");
-        Assert.assertEquals("CSV Number of results", 5, csvLines.length);
+        Assert.assertEquals("CSV Number of results", 6, csvLines.length);
         assertCsvLine(
-                "value 2008-10-31",
+                "value 20014-01-01",
                 csvLines[3],
-                "2008-10-31T00:00:00.000Z",
+                "2014-01-01T00:00:00.000Z",
                 16.88799985218793,
                 0.000000000001);
         assertCsvLine(
-                "value 2008-11-01",
+                "value 2015-01-01",
                 csvLines[4],
-                "2008-11-01T00:00:00.000Z",
-                17.120999863254838,
+                "2015-01-01T00:00:00.000Z",
+                13.399999686516821,
+                0.000000000001);
+        assertCsvLine(
+                "value 2016-01-01",
+                csvLines[5],
+                "2016-01-01T00:00:00.000Z",
+                13.331999683286995,
                 0.000000000001);
     }
 
