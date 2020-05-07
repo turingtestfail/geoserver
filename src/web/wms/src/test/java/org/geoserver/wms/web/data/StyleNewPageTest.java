@@ -33,6 +33,7 @@ import org.geoserver.platform.resource.Resources;
 import org.geoserver.web.GeoServerApplication;
 import org.geoserver.web.GeoServerWicketTestSupport;
 import org.geoserver.web.wicket.GeoServerAjaxFormLink;
+import org.geotools.util.URLs;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -527,7 +528,7 @@ public class StyleNewPageTest extends GeoServerWicketTestSupport {
         formTester = tester.newFormTester("dialog:dialog:content:form");
         org.apache.wicket.util.file.File file =
                 new org.apache.wicket.util.file.File(
-                        getClass().getResource("GeoServer_75.png").getFile());
+                        URLs.urlToFile(getClass().getResource("GeoServer_75.png")));
         formTester.setFile("userPanel:upload", file, "image/png");
         formTester.submit("submit");
 
