@@ -26,7 +26,6 @@ import org.geotools.data.DataStoreFinder;
 import org.geotools.feature.NameImpl;
 import org.junit.After;
 import org.junit.Assume;
-import org.junit.Before;
 import org.junit.Test;
 import org.opengis.filter.Filter;
 
@@ -45,11 +44,6 @@ public abstract class AbstractJDBCStatusStoreTest extends AbstractProcessStoreTe
 
     abstract String getFixtureId();
 
-    @Before
-    public void checkOnLine() {
-        Assume.assumeNotNull(getFixture());
-    }
-
     protected Properties getFixture() {
         return GSFixtureUtilitiesDelegate.loadFixture(getFixtureId());
     }
@@ -63,6 +57,7 @@ public abstract class AbstractJDBCStatusStoreTest extends AbstractProcessStoreTe
 
     @Override
     protected ProcessStatusStore buildStore() throws IOException {
+        Assume.assumeNotNull(getFixture());
         setupDataStore();
         if (Arrays.asList(datastore.getTypeNames()).contains(getStatusTable())) {
             datastore.removeSchema(getStatusTable());
