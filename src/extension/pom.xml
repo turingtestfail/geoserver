@@ -415,7 +415,7 @@
       <id>release</id>
       <modules>
         <module>app-schema</module>
-        <module>arcsde</module>
+        <!--module>arcsde</module-->
         <module>h2</module>
         <module>sqlserver</module>
         <module>oracle</module>
