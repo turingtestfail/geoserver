@@ -235,6 +235,12 @@ public class NcWmsService {
                 }
             }
             result.getFeature().add(features);
+        } catch (ServiceException e) {
+            if (ServiceException.INVALID_PARAMETER_VALUE.equals(e.getCode())) {
+                // fine, no results then
+            } else {
+                throw e;
+            }
         } catch (Exception e) {
             throw new ServiceException("Error processing the operation", e);
         } finally {
