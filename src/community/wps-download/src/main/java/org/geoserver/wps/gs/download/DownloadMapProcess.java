@@ -335,7 +335,7 @@ public class DownloadMapProcess implements GeoServerProcess, ApplicationContextA
         RenderedImage result = null;
         progressListener.started();
         int i = 0;
-        boolean singleDecorated = layers.length==1 && decorationName!=null;
+        boolean singleDecorated = layers.length == 1 && decorationName != null;
         for (Layer layer : layers) {
             LOGGER.log(Level.FINE, "Rendering layer %s", layer);
             RenderedImage image;

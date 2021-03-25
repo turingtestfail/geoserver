@@ -326,7 +326,9 @@ public class DownloadMapProcessTest extends BaseDownloadImageProcessTest {
         URL layout = getClass().getResource("legend_decoration.xml");
         FileUtils.copyURLToFile(layout, new File(layouts, "legend_decoration.xml"));
         String xml =
-                IOUtils.toString(getClass().getResourceAsStream("mapSingleLayerWithLegendDecoration.xml"), "UTF-8");
+                IOUtils.toString(
+                        getClass().getResourceAsStream("mapSingleLayerWithLegendDecoration.xml"),
+                        "UTF-8");
         MockHttpServletResponse response = postAsServletResponse("wps", xml);
         assertEquals("image/png", response.getContentType());
         BufferedImage image =
