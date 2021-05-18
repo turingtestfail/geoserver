@@ -5,7 +5,7 @@
  */
 package org.geoserver.wps.gs.download;
 
-import it.geosolutions.imageio.stream.output.ImageOutputStreamAdapter;
+import it.geosolutions.imageio.stream.output.FileImageOutputStreamExtImpl;
 import it.geosolutions.io.output.adapter.OutputStreamAdapter;
 import java.awt.Color;
 import java.awt.Rectangle;
@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.IIOException;
 import javax.imageio.stream.ImageOutputStream;
 import javax.media.jai.BorderExtender;
 import javax.media.jai.ImageLayout;
@@ -82,6 +83,9 @@ import org.springframework.context.ApplicationContext;
  * @author Simone Giannecchini, GeoSolutions SAS
  */
 class RasterDownload {
+
+    private static final int BUFFER_SIZE =
+            Integer.getInteger("org.geoserver.wps.download.raster.buffer.size", 16384);
 
     private static final Logger LOGGER = Logging.getLogger(RasterDownload.class);
 
@@ -813,7 +817,7 @@ class RasterDownload {
         // the limit output stream will throw an exception if the process is trying to writer more
         // than the max allowed bytes
         final ImageOutputStream fileImageOutputStreamExtImpl =
-                new ImageOutputStreamAdapter(output.out());
+                new FileImageOutputStreamExtImpl(output.file(), BUFFER_SIZE);
         ImageOutputStream os = null;
         // write
         try {
@@ -837,7 +841,8 @@ class RasterDownload {
             // Encoding the GridCoverage
             Map encodingParams = writeParams != null ? writeParams.getParametersMap() : null;
             complexPPIO.encode(gridCoverage, encodingParams, new OutputStreamAdapter(os));
-            os.flush();
+        } catch (Exception e) {
+            unwrapException(e);
         } finally {
             try {
                 if (os != null) {
@@ -850,5 +855,18 @@ class RasterDownload {
             }
         }
         return output;
+    }
+
+    private void unwrapException(Exception e) throws Exception {
+        // Unwrap the IOException if present and get the originating cause.
+        // Some writers (i.e. TIFF) are hiding the exception thrown by
+        // the LimitedImageOutputStream
+        if (e instanceof ProcessException) {
+            Throwable cause = e.getCause();
+            if (cause instanceof IIOException
+                    && cause.getMessage().toUpperCase().contains("I/O ERROR")) {
+                throw new ProcessException(cause.getCause());
+            }
+        }
     }
 }
