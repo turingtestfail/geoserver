@@ -186,15 +186,6 @@ class RasterEstimator {
         } else {
             targetArea = areaRead;
         }
-        if (areaRead >= Integer.MAX_VALUE || targetArea >= Integer.MAX_VALUE) {
-            if (LOGGER.isLoggable(Level.FINE)) {
-                LOGGER.log(
-                        Level.FINE,
-                        "Area to read or target image size exceeds maximum integer value: "
-                                + Integer.MAX_VALUE);
-            }
-            return false;
-        }
 
         // If the area exceeds the limits, false is returned
         if (rasterSizeLimits > DownloadServiceConfiguration.NO_LIMIT
