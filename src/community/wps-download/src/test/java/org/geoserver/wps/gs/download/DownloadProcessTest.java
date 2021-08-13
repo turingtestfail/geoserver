@@ -82,6 +82,7 @@ import org.geotools.util.URLs;
 import org.geotools.util.logging.Logging;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.locationtech.jts.geom.Envelope;
 import org.locationtech.jts.geom.Geometry;
@@ -1551,7 +1552,7 @@ public class DownloadProcessTest extends WPSTestSupport {
      *
      * @throws Exception the exception
      */
-    @Test
+    @Ignore
     public void testDownloadEstimatorIntegerMaxValueLimitRaster() throws Exception {
         // Estimator process for checking limits
         DownloadEstimatorProcess limits =
