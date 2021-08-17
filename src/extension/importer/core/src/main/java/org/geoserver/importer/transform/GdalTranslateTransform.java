@@ -58,4 +58,9 @@ public class GdalTranslateTransform extends AbstractCommandLinePreTransform
     protected List<String> getAvailabilityTestOptions() {
         return Collections.singletonList("--version");
     }
+
+    @Override
+    public String toString() {
+        return "GdalTranslateTransform{" + "options=" + options + '}';
+    }
 }

@@ -114,4 +114,9 @@ public class GdalWarpTransform extends AbstractCommandLinePreTransform implement
     protected List<String> getAvailabilityTestOptions() {
         return Collections.singletonList("--version");
     }
+
+    @Override
+    public String toString() {
+        return "GdalWarpTransform{" + "options=" + options + '}';
+    }
 }
