@@ -34,6 +34,7 @@ import org.geoserver.wms.WMSMapContent;
 import org.geotools.gce.imagemosaic.ImageMosaicFormat;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletResponse;
+import org.w3c.dom.Document;
 
 public class DimensionsRasterGetMapTest extends WMSDimensionsTestSupport {
 
@@ -250,10 +251,10 @@ public class DimensionsRasterGetMapTest extends WMSDimensionsTestSupport {
         getAsImage(BASE_PNG_URL + "&time=2008-10-31T08:00:00.000Z", "image/png");
         assertNearestTimeWarning(getLayerId(WATTEMP), "2008-10-31T00:00:00.000Z");
 
-        // now one that's not big enough
+        // now one that's not big enough,  expecting an exception (EOWS-158 only)
         setupNearestMatch(WATTEMP, ResourceInfo.TIME, true, "PT4H/P0D");
-        getAsImage(BASE_PNG_URL + "&time=2008-10-31T08:00:00.000Z", "image/png");
-        assertNoNearestWarning(getLayerId(WATTEMP), "time");
+        Document dom = getAsDOM(BASE_PNG_URL + "&time=2008-10-31T08:00:00.000Z");
+        checkLegacyException(dom, "InvalidDimensionValue", "time");
 
         // now force a search in the future only
         setupNearestMatch(WATTEMP, ResourceInfo.TIME, true, "P0D/P10D");
@@ -675,14 +676,12 @@ public class DimensionsRasterGetMapTest extends WMSDimensionsTestSupport {
 
         // after last range, as a range, small enough that it won't be found
         setupNearestMatch(TIMERANGES, ResourceInfo.TIME, true, "P1D");
-        getAsImage(baseUrl + "&TIME=2018-11-8/2018-11-09", "image/png");
-        assertWarningCount(2);
-        assertNoNearestWarning(getLayerId(TIMERANGES), ResourceInfo.TIME);
+        Document dom = getAsDOM(baseUrl + "&TIME=2018-11-8/2018-11-09");
+        checkLegacyException(dom, "InvalidDimensionValue", "time");
 
         // same as above, but with an instant
-        getAsImage(baseUrl + "&TIME=20018-11-05", "image/png");
-        assertWarningCount(2);
-        assertNoNearestWarning(getLayerId(TIMERANGES), ResourceInfo.TIME);
+        dom = getAsDOM(baseUrl + "&TIME=20018-11-05");
+        checkLegacyException(dom, "InvalidDimensionValue", "time");
 
         // in the middle hole, closer to the latest value, but with a search radius that will match
         // the earlier one
@@ -699,14 +698,12 @@ public class DimensionsRasterGetMapTest extends WMSDimensionsTestSupport {
 
         // before first range, as a range, with a range that won't allow match
         setupNearestMatch(TIMERANGES, ResourceInfo.TIME, true, "P1D");
-        getAsImage(baseUrl + "&TIME=2000-10-31/2000-10-31", "image/png");
-        assertWarningCount(2);
-        assertNoNearestWarning(getLayerId(TIMERANGES), ResourceInfo.TIME);
+        dom = getAsDOM(baseUrl + "&TIME=2000-10-31/2000-10-31");
+        checkLegacyException(dom, "InvalidDimensionValue", "time");
 
         // same as above, as an instant
-        getAsImage(baseUrl + "&TIME=2000-10-31", "image/png");
-        assertWarningCount(2);
-        assertNoNearestWarning(getLayerId(TIMERANGES), ResourceInfo.TIME);
+        dom = getAsDOM(baseUrl + "&TIME=2000-10-31");
+        checkLegacyException(dom, "InvalidDimensionValue", "time");
     }
 
     @Test

@@ -47,6 +47,8 @@ import org.geoserver.config.GeoServer;
 import org.geoserver.config.GeoServerInfo;
 import org.geoserver.config.JAIInfo;
 import org.geoserver.data.util.CoverageUtils;
+import org.geoserver.ows.Dispatcher;
+import org.geoserver.ows.Request;
 import org.geoserver.platform.GeoServerExtensions;
 import org.geoserver.platform.ServiceException;
 import org.geoserver.util.DimensionWarning;
@@ -1710,8 +1712,22 @@ public class WMS implements ApplicationContextAware {
             if (nearest == null) {
                 // no way to specify there is no match yet, so we'll use the original value, which
                 // will not match
-                HTTPWarningAppender.addWarning(
-                        DimensionWarning.notFound(resourceInfo, dimensionName));
+                Request request = Dispatcher.REQUEST.get();
+                String prefixedDim = dimensionName;
+                if (!"time".equals(dimensionName) && !"elevation".equals(dimensionName))
+                    prefixedDim = "DIM_" + dimensionName.toUpperCase();
+                if (request != null && "WMS".equalsIgnoreCase(request.getService())) {
+                    throw new ServiceException(
+                            "Could not find a nearest match for dimension "
+                                    + dimensionName
+                                    + " using "
+                                    + value,
+                            "InvalidDimensionValue",
+                            prefixedDim);
+                } else {
+                    HTTPWarningAppender.addWarning(
+                            DimensionWarning.notFound(resourceInfo, dimensionName));
+                }
                 result.add(value);
             } else if (value.equals(nearest)) {
                 result.add(value);

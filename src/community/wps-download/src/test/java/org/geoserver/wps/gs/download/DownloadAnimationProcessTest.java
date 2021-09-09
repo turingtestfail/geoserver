@@ -155,6 +155,10 @@ public class DownloadAnimationProcessTest extends BaseDownloadImageProcessTest {
         assertEquals("application/xml", response.getContentType());
         Document dom = dom(response, true);
         print(dom);
+        checkAnimateBmTimeMetadataWarnings(dom);
+    }
+
+    private void checkAnimateBmTimeMetadataWarnings(Document dom) throws Exception {
         // check the animation is produced as normal, de-referencing the link
         String fullLocation =
                 XMLUnit.newXpathEngine()
@@ -208,6 +212,24 @@ public class DownloadAnimationProcessTest extends BaseDownloadImageProcessTest {
                 "true",
                 "//wps:Output[ows:Identifier='metadata']/wps:Data/wps:ComplexData/AnimationMetadata/WarningsFound",
                 dom);
+    }
+
+    @Test
+    public void testAnimateBmTimeMetadataWarningsAsynch() throws Exception {
+        // sync request
+        String base =
+                IOUtils.toString(
+                        getClass().getResourceAsStream("animateBlueMarbleMetadataWarnings.xml"),
+                        UTF_8);
+        // now asynch
+        String xml =
+                base.replace(
+                        "<wps:ResponseDocument>",
+                        "<wps:ResponseDocument status=\"true\" storeExecuteResponse=\"true\">");
+
+        Document doc = submitAsynchronous(xml, 60);
+        print(doc);
+        checkAnimateBmTimeMetadataWarnings(doc);
     }
 
     /**
