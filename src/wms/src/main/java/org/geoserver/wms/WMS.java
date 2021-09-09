@@ -1716,7 +1716,7 @@ public class WMS implements ApplicationContextAware {
                 String prefixedDim = dimensionName;
                 if (!"time".equals(dimensionName) && !"elevation".equals(dimensionName))
                     prefixedDim = "DIM_" + dimensionName.toUpperCase();
-                if (request != null && "WMS".equalsIgnoreCase(request.getService())) {
+                if (request != null && isBasicWMSRequest(request)) {
                     throw new ServiceException(
                             "Could not find a nearest match for dimension "
                                     + dimensionName
@@ -1748,6 +1748,13 @@ public class WMS implements ApplicationContextAware {
         }
 
         return result;
+    }
+
+    /** Checks if it's a GetMap or a GetFeatureInfo */
+    private boolean isBasicWMSRequest(Request request) {
+        return "WMS".equalsIgnoreCase(request.getService())
+                && ("GetMap".equalsIgnoreCase(request.getRequest())
+                        || "GetFeatureInfo".equalsIgnoreCase(request.getRequest()));
     }
 
     /**
