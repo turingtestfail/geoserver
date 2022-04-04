@@ -402,7 +402,7 @@ public class NcWmsGetTimeSeriesTest extends WMSDimensionsTestSupport {
     }
 
     @Test
-    public void testTooManyValues() throws Exception {
+    public void testTooManyValuesPeriod() throws Exception {
         // set a specific number of max values
         GeoServer gs = getGeoServer();
         WMSInfo wms = gs.getService(WMSInfo.class);
@@ -425,5 +425,27 @@ public class NcWmsGetTimeSeriesTest extends WMSDimensionsTestSupport {
                 checkLegacyException(dom, "InvalidParameterValue", "time"),
                 CoreMatchers.containsString(
                         "More than 3 times specified in the request, bailing out."));
+    }
+
+    @Test
+    public void testTooManyValuesRange() throws Exception {
+        // set a specific number of max values
+        GeoServer gs = getGeoServer();
+        WMSInfo wms = gs.getService(WMSInfo.class);
+        NcWmsInfo ncwms = new NcWMSInfoImpl();
+        ncwms.setMaxTimeSeriesValues(1);
+        wms.getMetadata().put(NcWmsService.WMS_CONFIG_KEY, ncwms);
+        gs.save(wms);
+
+        // enable time (otherwise GetTimeSeries is refused)
+        setupRasterDimension(WATTEMP, ELEVATION, LIST, null, UNITS, UNIT_SYMBOL);
+        setupRasterDimension(WATTEMP, TIME, LIST, null, null, "degrees");
+
+        // ask for too many (less than the default WMS one, but more than the above configuration)
+        Document dom = getAsDOM(BASE_URL_4326 + CSV_FORMAT + TIME_RANGE_COMPLETE);
+        assertThat(
+                checkLegacyException(dom, "InvalidParameterValue", "time"),
+                CoreMatchers.containsString(
+                        "This request would process 2 times, while the maximum allowed is 1. Please reduce the size of the requested time range."));
     }
 }
