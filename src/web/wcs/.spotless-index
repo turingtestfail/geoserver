@@ -1,0 +1,14 @@
+x2M3V2gzVwUVbkjJqAYH7RtIXC1a+9Qcf4GwLYgR+k0=
+src/main/java/org/geoserver/wcs/web/WCSAdminPage.java 2022-05-03T20:26:48.556Z
+src/main/java/org/geoserver/wcs/web/demo/AffineTransformPanel.java 2022-03-28T11:36:13.701Z
+src/main/java/org/geoserver/wcs/web/demo/CoverageNamesModel.java 2022-03-28T11:36:15.477Z
+src/main/java/org/geoserver/wcs/web/demo/GetCoverageRequest.java 2022-03-17T18:51:50.639Z
+src/main/java/org/geoserver/wcs/web/demo/GridPanel.java 2022-03-28T11:36:14.909Z
+src/main/java/org/geoserver/wcs/web/demo/WCS10GetCoverageTransformer.java 2022-05-03T20:26:48.556Z
+src/main/java/org/geoserver/wcs/web/demo/WCS11GetCoverageTransformer.java 2022-05-03T20:26:48.556Z
+src/main/java/org/geoserver/wcs/web/demo/WCSRequestBuilder.java 2022-05-03T20:26:48.556Z
+src/main/java/org/geoserver/wcs/web/demo/WCSRequestBuilderPanel.java 2022-05-03T20:26:48.556Z
+src/main/java/org/geoserver/wcs/web/publish/WCSLayerConfig.java 2022-05-03T20:26:48.556Z
+src/test/java/org/geoserver/wcs/web/GeoServerWicketCoverageTestSupport.java 2022-03-28T11:36:15.477Z
+src/test/java/org/geoserver/wcs/web/WCSAdminPageTest.java 2022-05-03T20:26:48.564Z
+src/test/java/org/geoserver/wcs/web/data/WCSLayerConfigTest.java 2022-05-03T20:26:48.564Z

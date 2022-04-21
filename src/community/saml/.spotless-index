@@ -1,0 +1,14 @@
+7tnAIO+qqJ5W7LPncnlrC3IRPsi8RW/Ut2Y2TD+ZKPw=
+src/main/java/org/geoserver/security/saml/GeoServerPreAuthenticatedCompositeUserNameFilter.java 2022-03-28T11:37:05.910018Z
+src/main/java/org/geoserver/security/saml/LoggingHTTPMetadataProvider.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/security/saml/SAMLAuthenticationFilter.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/security/saml/SAMLAuthenticationFilterConfig.java 2022-03-17T18:51:50.131754Z
+src/main/java/org/geoserver/security/saml/SAMLKeyManager.java 2022-03-17T18:51:50.131754Z
+src/main/java/org/geoserver/security/saml/SAMLSecurityProvider.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/security/saml/SAMLUserDetailsServiceImpl.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/security/web/saml/SAMLAuthFilterPanel.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/security/web/saml/SAMLAuthFilterPanelInfo.java 2022-03-17T18:51:50.131754Z
+src/test/java/org/geoserver/security/saml/test/SAMLAuthFilterPanelTest.java 2022-03-28T11:37:05.914018Z
+src/test/java/org/geoserver/security/saml/test/SAMLAuthenticationTest.java 2022-03-28T11:37:05.914018Z
+src/test/java/org/geoserver/security/saml/test/SSLUtilities.java 2022-03-28T11:37:05.914018Z
+src/test/java/org/geoserver/security/saml/test/StringSamlDecoder.java 2022-03-28T11:37:05.914018Z

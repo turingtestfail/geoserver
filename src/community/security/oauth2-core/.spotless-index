@@ -1,0 +1,16 @@
+EHqHxjHqR3f1g7IJLezC8HieMqhYe4xa5XeGDpRTBYU=
+src/main/java/org/geoserver/security/oauth2/GeoServerAccessTokenConverter.java 2022-03-28T11:37:05.918018Z
+src/main/java/org/geoserver/security/oauth2/GeoServerOAuth2FilterConfig.java 2022-03-28T11:37:05.918018Z
+src/main/java/org/geoserver/security/oauth2/GeoServerOAuth2SecurityConfiguration.java 2022-03-28T11:37:05.918018Z
+src/main/java/org/geoserver/security/oauth2/GeoServerOAuthAuthenticationFilter.java 2022-04-24T21:44:57.270835Z
+src/main/java/org/geoserver/security/oauth2/GeoServerOAuthAuthenticationProvider.java 2022-03-17T18:51:50.143755Z
+src/main/java/org/geoserver/security/oauth2/GeoServerOAuthRemoteTokenServices.java 2022-03-28T11:37:05.918018Z
+src/main/java/org/geoserver/security/oauth2/GeoServerUserAuthenticationConverter.java 2022-03-17T18:51:50.143755Z
+src/main/java/org/geoserver/security/oauth2/OAuth2AccessTokenURLMangler.java 2022-03-28T11:36:16.321502Z
+src/main/java/org/geoserver/security/oauth2/OAuth2FilterConfig.java 2022-03-17T18:51:50.143755Z
+src/main/java/org/geoserver/security/oauth2/OAuth2FilterConfigException.java 2022-03-17T18:51:50.143755Z
+src/main/java/org/geoserver/security/oauth2/OAuth2FilterConfigValidator.java 2022-03-28T11:37:05.918018Z
+src/main/java/org/geoserver/security/oauth2/OAuth2SecurityConfiguration.java 2022-03-17T18:51:50.143755Z
+src/main/java/org/geoserver/web/security/oauth2/GeoServerOAuth2AuthProviderPanel.java 2022-03-28T11:36:12.429462Z
+src/test/java/org/geoserver/security/oauth2/AbstractOAuth2RestTemplateTest.java 2022-03-17T18:51:50.147756Z
+src/test/java/org/geoserver/security/oauth2/GeoServerOAuthAuthenticationFilterTest.java 2022-03-28T11:37:05.918018Z

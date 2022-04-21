@@ -1,0 +1,24 @@
+R3pDBKAX+JraoiyhFdCJ1Xk7MdEo2+7PEaU0F0SJ270=
+src/main/java/org/geoserver/ogcapi/coverages/CollectionDocument.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/coverages/CollectionsDocument.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/coverages/CoverageResponseMessageConverter.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/coverages/CoveragesAPIBuilder.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/coverages/CoveragesLandingPage.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/coverages/CoveragesResponse.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/coverages/CoveragesService.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/coverages/SubsetsParser.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/coverages/WCS20ExceptionHandler.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/coverages/cis/Axis.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/coverages/cis/DomainSet.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/coverages/cis/GeneralGrid.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/coverages/cis/GridLimits.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/coverages/cis/IndexAxis.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/coverages/cis/RegularAxis.java 2022-03-28T11:37:05.878Z
+src/test/java/org/geoserver/ogcapi/coverages/ApiTest.java 2022-03-28T11:37:05.878Z
+src/test/java/org/geoserver/ogcapi/coverages/CollectionTest.java 2022-03-28T11:37:05.878Z
+src/test/java/org/geoserver/ogcapi/coverages/CollectionsTest.java 2022-03-28T11:37:05.878Z
+src/test/java/org/geoserver/ogcapi/coverages/ConformanceTest.java 2022-03-28T11:37:05.878Z
+src/test/java/org/geoserver/ogcapi/coverages/CoverageTest.java 2022-03-28T11:37:05.878Z
+src/test/java/org/geoserver/ogcapi/coverages/CoveragesTestSupport.java 2022-03-28T11:37:05.878Z
+src/test/java/org/geoserver/ogcapi/coverages/DomainSetTest.java 2022-03-28T11:37:05.878Z
+src/test/java/org/geoserver/ogcapi/coverages/LandingPageTest.java 2022-03-28T11:37:05.878Z

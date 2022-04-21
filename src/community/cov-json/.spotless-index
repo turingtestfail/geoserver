@@ -1,0 +1,14 @@
+x73nxzbYQE2SSaD+uZ4W3eM/VZqJJVt5uNYyl+VDlys=
+src/main/java/org/geoserver/wcs/responses/CoverageJsonEncoder.java 2022-03-28T11:37:05.830018Z
+src/main/java/org/geoserver/wcs/responses/CoverageJsonResponseDelegate.java 2022-03-28T11:37:05.830018Z
+src/main/java/org/geoserver/wcs/responses/covjson/Axis.java 2022-03-28T11:37:05.830018Z
+src/main/java/org/geoserver/wcs/responses/covjson/Coverage.java 2022-03-28T11:37:05.830018Z
+src/main/java/org/geoserver/wcs/responses/covjson/CoverageJson.java 2022-03-28T11:37:05.830018Z
+src/main/java/org/geoserver/wcs/responses/covjson/Domain.java 2022-03-28T11:37:05.830018Z
+src/main/java/org/geoserver/wcs/responses/covjson/Grid.java 2022-03-28T11:37:05.830018Z
+src/main/java/org/geoserver/wcs/responses/covjson/NdArray.java 2022-03-28T11:37:05.830018Z
+src/main/java/org/geoserver/wcs/responses/covjson/Parameter.java 2022-03-28T11:37:05.830018Z
+src/main/java/org/geoserver/wcs/responses/covjson/PointSeries.java 2022-03-28T11:37:05.830018Z
+src/main/java/org/geoserver/wcs/responses/covjson/Referencing.java 2022-03-28T11:37:05.830018Z
+src/main/java/org/geoserver/wcs/responses/covjson/Sampler.java 2022-03-28T11:37:05.830018Z
+src/test/java/org/geoserver/wcs2_0/CoverageJsonTest.java 2022-03-28T11:37:05.830018Z

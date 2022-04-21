@@ -1,0 +1,9 @@
+Ffm1Lalua/TkNZrTVt1Fi0uG15ZxuxHvCPkoedftLno=
+src/main/java/org/geoserver/solr/SolrAttributeProvider.java 2022-03-28T11:37:05.922018Z
+src/main/java/org/geoserver/solr/SolrConfigurationPage.java 2022-03-28T11:37:05.922018Z
+src/main/java/org/geoserver/solr/SolrConfigurationPanel.java 2022-03-28T11:37:05.922018Z
+src/main/java/org/geoserver/solr/SolrConfigurationPanelInfo.java 2022-03-28T11:37:05.922018Z
+src/main/java/org/geoserver/solr/SolrFeatureTypeCallback.java 2022-03-28T11:37:05.922018Z
+src/main/java/org/geoserver/solr/SolrXStreamInitializer.java 2022-03-28T11:37:05.922018Z
+src/test/java/org/geoserver/solr/SOLRXStreamInitializerTest.java 2022-03-17T18:51:50.151757Z
+src/test/java/org/geoserver/solr/SolrStorePageTest.java 2022-03-28T11:37:05.922018Z

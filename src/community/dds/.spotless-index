@@ -1,0 +1,9 @@
+i8EHLC9ri0/YtNfzw1DqHbGsOsX+ruzM/A49+Pn/Twk=
+src/main/java/org/geoserver/wms/worldwind/BilConfig.java 2022-03-17T18:51:49.947Z
+src/main/java/org/geoserver/wms/worldwind/BilMapResponse.java 2022-03-28T11:37:05.830Z
+src/main/java/org/geoserver/wms/worldwind/DDSMapResponse.java 2022-03-28T11:37:05.830Z
+src/main/java/org/geoserver/wms/worldwind/util/BilWCSUtils.java 2022-03-28T11:37:05.830Z
+src/main/java/org/geoserver/wms/worldwind/util/RecodeRaster.java 2022-03-28T11:37:05.830Z
+src/main/java/org/geoserver/wms/worldwind/web/BilLayerConfigPanel.java 2022-03-28T11:37:05.830Z
+src/test/java/org/geoserver/wms/worldwind/BilTest.java 2022-03-28T11:37:05.830Z
+src/test/java/org/geoserver/wms/worldwind/DDSMapProducerTest.java 2022-03-28T11:37:05.830Z

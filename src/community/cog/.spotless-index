@@ -1,0 +1,15 @@
+Y8LKzdf6vz0gp46WKdJ3WVWjom3V7RXIO/tKU01C8XM=
+src/main/java/org/geoserver/cog/CogEncryptedFieldsProvider.java 2022-03-17T18:51:49.939726Z
+src/main/java/org/geoserver/cog/CogSettings.java 2022-03-28T11:37:05.826017Z
+src/main/java/org/geoserver/cog/CogSettingsInitializer.java 2022-03-17T18:51:49.939726Z
+src/main/java/org/geoserver/cog/CogSettingsStore.java 2022-03-17T18:51:49.939726Z
+src/main/java/org/geoserver/cog/CogSettingsXStreamInitializer.java 2022-03-17T18:51:49.939726Z
+src/main/java/org/geoserver/cog/CoverageReaderCogInputObjectConverter.java 2022-03-17T18:51:49.939726Z
+src/main/java/org/geoserver/web/data/store/cog/panel/CogInput.java 2022-03-28T11:37:05.826017Z
+src/main/java/org/geoserver/web/data/store/cog/panel/CogRasterEditPanel.java 2022-03-28T11:37:05.826017Z
+src/main/java/org/geoserver/web/data/store/cog/panel/CogSettingsPanel.java 2022-03-17T18:51:49.939726Z
+src/main/java/org/geoserver/web/data/store/cog/panel/CogSettingsPluginPanel.java 2022-03-17T18:51:49.939726Z
+src/main/java/org/geoserver/web/data/store/cog/panel/CogSettingsStorePanel.java 2022-03-17T18:51:49.939726Z
+src/main/java/org/geoserver/web/data/store/cog/panel/CogUrlParamPanel.java 2022-03-28T11:37:05.826017Z
+src/test/java/org/geoserver/rest/catalog/CogGSRemoteHarvestOnlineTest.java 2022-03-28T11:37:05.826017Z
+src/test/java/org/geoserver/rest/catalog/CogRemoteHarvestOnlineTest.java 2022-03-28T11:37:05.826017Z

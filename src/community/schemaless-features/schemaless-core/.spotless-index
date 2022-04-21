@@ -1,0 +1,15 @@
+I9wDGt0zxtg6VZqCMEslBfB2WcLmI8/DcqEMkcrUYfs=
+src/main/java/org/geoserver/schemalessfeatures/SchemalessFeatureMapper.java 2022-04-24T21:44:57.270835Z
+src/main/java/org/geoserver/schemalessfeatures/builders/DynamicComplexTypeBuilder.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/schemalessfeatures/builders/DynamicComplexTypeFactory.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/schemalessfeatures/data/ComplexContentDataAccess.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/schemalessfeatures/data/ComplexFeatureCollection.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/schemalessfeatures/data/ComplexFeatureIterator.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/schemalessfeatures/data/ComplexFeatureReader.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/schemalessfeatures/data/ComplexFeatureSource.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/schemalessfeatures/data/SchemalessFeatureSource.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/schemalessfeatures/filter/SchemalessPropertyAccessorFactory.java 2022-03-28T11:38:35.638957Z
+src/main/java/org/geoserver/schemalessfeatures/request/SchemalessDispatcherCallback.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/schemalessfeatures/type/DynamicComplexType.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/schemalessfeatures/type/DynamicComplexTypeImpl.java 2022-03-28T11:37:05.914018Z
+src/main/java/org/geoserver/schemalessfeatures/type/DynamicFeatureType.java 2022-03-28T11:37:05.914018Z

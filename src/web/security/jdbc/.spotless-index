@@ -1,0 +1,22 @@
+zYKSCS09wPQj99uFj2FTA3nL7WYWSSDb7+PTOMSDX5Q=
+src/main/java/org/geoserver/security/web/jdbc/JDBCAuthProviderPanel.java 2022-03-28T11:36:15.477Z
+src/main/java/org/geoserver/security/web/jdbc/JDBCAuthProviderPanelInfo.java 2022-03-17T18:51:50.635Z
+src/main/java/org/geoserver/security/web/jdbc/JDBCConnectionPanel.java 2022-04-28T23:57:06.386Z
+src/main/java/org/geoserver/security/web/jdbc/JDBCDriverChoice.java 2022-03-28T11:36:15.477Z
+src/main/java/org/geoserver/security/web/jdbc/JDBCRoleServicePanel.java 2022-03-28T11:36:13.777Z
+src/main/java/org/geoserver/security/web/jdbc/JDBCRoleServicePanelInfo.java 2022-03-17T18:51:50.635Z
+src/main/java/org/geoserver/security/web/jdbc/JDBCUserGroupServicePanel.java 2022-03-28T11:36:13.777Z
+src/main/java/org/geoserver/security/web/jdbc/JDBCUserGroupServicePanelInfo.java 2022-03-17T18:51:50.635Z
+src/test/java/org/geoserver/security/web/jdbc/JDBCConnectionPanelTest.java 2022-05-03T20:26:48.552Z
+src/test/java/org/geoserver/security/web/jdbc/group/JDBCConfirmRemovalGroupPanelTest.java 2022-05-03T20:26:48.552Z
+src/test/java/org/geoserver/security/web/jdbc/group/JDBCEditGroupPageTest.java 2022-05-03T20:26:48.552Z
+src/test/java/org/geoserver/security/web/jdbc/group/JDBCGroupListPageTest.java 2022-05-03T20:26:48.552Z
+src/test/java/org/geoserver/security/web/jdbc/group/JDBCNewGroupPageTest.java 2022-05-03T20:26:48.552Z
+src/test/java/org/geoserver/security/web/jdbc/role/JDBCConfirmRemovalRolePanelTest.java 2022-05-03T20:26:48.552Z
+src/test/java/org/geoserver/security/web/jdbc/role/JDBCEditRolePageTest.java 2022-05-03T20:26:48.552Z
+src/test/java/org/geoserver/security/web/jdbc/role/JDBCNewRolePageTest.java 2022-05-03T20:26:48.552Z
+src/test/java/org/geoserver/security/web/jdbc/role/JDBCRoleListPageTest.java 2022-05-03T20:26:48.552Z
+src/test/java/org/geoserver/security/web/jdbc/user/JDBCConfirmRemovalUserPanelTest.java 2022-05-03T20:26:48.552Z
+src/test/java/org/geoserver/security/web/jdbc/user/JDBCEditUserPageTest.java 2022-05-03T20:26:48.552Z
+src/test/java/org/geoserver/security/web/jdbc/user/JDBCNewUserPageTest.java 2022-05-03T20:26:48.552Z
+src/test/java/org/geoserver/security/web/jdbc/user/JDBCUserListPageTest.java 2022-05-03T20:26:48.552Z

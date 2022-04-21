@@ -1,0 +1,4 @@
+q+61zVdNqF+p8/MnbZZtTpIrJYWScapoa3JCOWL5ToE=
+src/main/java/org/geoserver/rest/service/WMTSSettingsController.java 2022-05-03T20:26:48.328Z
+src/test/java/org/geoserver/rest/service/LocalWMTSSettingsControllerTest.java 2022-05-03T20:26:48.328Z
+src/test/java/org/geoserver/rest/service/WMTSSettingsControllerTest.java 2022-03-17T18:51:50.503Z

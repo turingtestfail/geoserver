@@ -1,0 +1,17 @@
+ay0ISpMDT617k33xbrkrZunyv48obLghZaexShXB5hQ=
+src/main/java/org/geoserver/ogcapi/maps/CollectionDocument.java 2022-03-28T11:37:05.882Z
+src/main/java/org/geoserver/ogcapi/maps/CollectionsDocument.java 2022-03-28T11:37:05.882Z
+src/main/java/org/geoserver/ogcapi/maps/FeatureInfoResponse.java 2022-03-28T11:37:05.882Z
+src/main/java/org/geoserver/ogcapi/maps/FeatureInfoResponseMessageConverter.java 2022-03-28T11:37:05.882Z
+src/main/java/org/geoserver/ogcapi/maps/HTMLMap.java 2022-03-28T11:37:05.882Z
+src/main/java/org/geoserver/ogcapi/maps/HTMLMapMessageConverter.java 2022-03-28T11:37:05.882Z
+src/main/java/org/geoserver/ogcapi/maps/MapResponseMessageConverter.java 2022-03-28T11:37:05.882Z
+src/main/java/org/geoserver/ogcapi/maps/MapsLandingPage.java 2022-03-28T11:37:05.882Z
+src/main/java/org/geoserver/ogcapi/maps/MapsService.java 2022-03-28T11:37:05.882Z
+src/main/java/org/geoserver/ogcapi/maps/StylesDocument.java 2022-03-28T11:37:05.882Z
+src/test/java/org/geoserver/ogcapi/maps/CollectionTest.java 2022-03-28T11:37:05.882Z
+src/test/java/org/geoserver/ogcapi/maps/CollectionsTest.java 2022-03-28T11:37:05.882Z
+src/test/java/org/geoserver/ogcapi/maps/ConformanceTest.java 2022-03-28T11:37:05.882Z
+src/test/java/org/geoserver/ogcapi/maps/LandingPageTest.java 2022-03-28T11:37:05.882Z
+src/test/java/org/geoserver/ogcapi/maps/MapsTestSupport.java 2022-03-28T11:37:05.882Z
+src/test/java/org/geoserver/ogcapi/maps/StylesTest.java 2022-03-28T11:37:05.882Z

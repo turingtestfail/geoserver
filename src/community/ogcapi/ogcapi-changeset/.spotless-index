@@ -1,0 +1,16 @@
+PJIVKVfSTeLEkt3AmnesxxucUU6iGAJMxpCYC/ja6BY=
+src/main/java/org/geoserver/ogcapi/changeset/BoundsAndCRS.java 2022-03-28T11:36:16.973Z
+src/main/java/org/geoserver/ogcapi/changeset/ChangeSet.java 2022-03-28T11:37:05.870Z
+src/main/java/org/geoserver/ogcapi/changeset/ChangeSetLinkCallback.java 2022-03-28T11:37:05.870Z
+src/main/java/org/geoserver/ogcapi/changeset/ChangesetAPICallback.java 2022-03-28T11:36:16.973Z
+src/main/java/org/geoserver/ogcapi/changeset/ChangesetImageListener.java 2022-03-28T11:37:05.870Z
+src/main/java/org/geoserver/ogcapi/changeset/ChangesetIndexProvider.java 2022-03-28T11:36:16.973Z
+src/main/java/org/geoserver/ogcapi/changeset/ChangesetTilesService.java 2022-03-28T11:37:05.870Z
+src/main/java/org/geoserver/ogcapi/changeset/CheckpointCallback.java 2022-03-28T11:36:16.973Z
+src/main/java/org/geoserver/ogcapi/changeset/ModifiedTiles.java 2022-03-28T11:36:16.973Z
+src/main/java/org/geoserver/ogcapi/changeset/TileIterator.java 2022-03-28T11:37:05.870Z
+src/main/java/org/geoserver/ogcapi/changeset/ZippedChangesetMessageConverter.java 2022-03-28T11:36:16.973Z
+src/test/java/org/geoserver/ogcapi/changeset/ChangesetCustomDBTest.java 2022-03-28T11:37:05.874Z
+src/test/java/org/geoserver/ogcapi/changeset/ChangesetTest.java 2022-03-28T11:37:05.874Z
+src/test/java/org/geoserver/ogcapi/changeset/TilesExtensionsTest.java 2022-03-28T11:37:05.874Z
+src/test/java/org/geoserver/ogcapi/changeset/TilesIteratorTest.java 2022-03-28T11:37:05.874Z

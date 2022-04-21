@@ -1,0 +1,20 @@
+kyNp29gbXYmaXmvW89e9mVex12vIO+KAaO+30nABicU=
+src/main/java/org/geoserver/web/ncwms/NcWmsAdminPanel.java 2022-03-28T11:37:05.862018Z
+src/main/java/org/geoserver/wms/ncwms/GetMapNcWmsCallback.java 2022-03-28T11:37:05.862018Z
+src/main/java/org/geoserver/wms/ncwms/GetTimeSeriesResponse.java 2022-04-24T21:44:57.198834Z
+src/main/java/org/geoserver/wms/ncwms/NcWMSInfoImpl.java 2022-03-28T11:37:05.862018Z
+src/main/java/org/geoserver/wms/ncwms/NcWmsConfigurationListener.java 2022-03-28T11:37:05.862018Z
+src/main/java/org/geoserver/wms/ncwms/NcWmsDatasetCallback.java 2022-03-17T18:51:50.063744Z
+src/main/java/org/geoserver/wms/ncwms/NcWmsInfo.java 2022-03-28T11:37:05.862018Z
+src/main/java/org/geoserver/wms/ncwms/NcWmsInitializer.java 2022-03-17T18:51:50.063744Z
+src/main/java/org/geoserver/wms/ncwms/NcWmsService.java 2022-04-24T21:44:57.198834Z
+src/main/java/org/geoserver/wms/ncwms/NcWmsServiceCallback.java 2022-04-24T21:44:57.198834Z
+src/main/java/org/geoserver/wms/ncwms/NcWmsXStreamInitializer.java 2022-03-28T11:37:05.862018Z
+src/main/java/org/geoserver/wms/ncwms/TimeKvpParser.java 2022-03-28T11:37:05.862018Z
+src/main/java/org/geoserver/wms/style/PaletteParser.java 2022-03-17T18:51:50.063744Z
+src/main/java/org/geoserver/wms/style/PaletteStyleHandler.java 2022-03-17T18:51:50.063744Z
+src/test/java/org/geoserver/web/ncwms/NcWmsAdminPanelTest.java 2022-03-28T11:37:05.862018Z
+src/test/java/org/geoserver/wms/ncwms/NcWmsGetTimeSeriesTest.java 2022-04-24T21:44:57.198834Z
+src/test/java/org/geoserver/wms/ncwms/NcwmsIntegrationTest.java 2022-03-28T11:37:05.862018Z
+src/test/java/org/geoserver/wms/style/PaletteParserTest.java 2022-03-17T18:51:50.063744Z
+src/test/java/org/geoserver/wms/style/PaletteStyleHandlerTest.java 2022-03-17T18:51:50.063744Z

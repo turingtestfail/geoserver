@@ -1,0 +1,15 @@
+Dro4V4AlF/6fgY8zrGWWzlbQRVSGspVkvfYDmUHaxz4=
+src/main/java/org/geootols/dggs/clickhouse/ClickHouseDGGSDataStore.java 2022-03-28T11:37:05.866Z
+src/main/java/org/geootols/dggs/clickhouse/ClickHouseDGGSFeatureSource.java 2022-03-28T11:37:05.866Z
+src/main/java/org/geootols/dggs/clickhouse/ClickHouseDGGStoreFactory.java 2022-03-17T18:51:50.075Z
+src/main/java/org/geootols/dggs/clickhouse/ClickHouseDialect.java 2022-03-17T18:51:50.075Z
+src/main/java/org/geootols/dggs/clickhouse/ClickHouseFilterToSQL.java 2022-03-17T18:51:50.075Z
+src/main/java/org/geootols/dggs/clickhouse/ClickHouseJDBCDataStoreFactory.java 2022-03-28T11:37:05.866Z
+src/main/java/org/geootols/dggs/clickhouse/ClickhouseAggregatorCollection.java 2022-03-28T11:37:05.866Z
+src/main/java/org/geootols/dggs/clickhouse/DGGSFeatureCollection.java 2022-03-28T11:37:05.866Z
+src/main/java/org/geootols/dggs/clickhouse/DGGSQuerySplitter.java 2022-03-17T18:51:50.075Z
+src/test/java/org/geotools/dggs/clickhouse/ClickHouseGeometrylessOnlineTest.java 2022-03-28T11:37:05.866Z
+src/test/java/org/geotools/dggs/clickhouse/ClickHouseGeometrylessTestSetup.java 2022-03-17T18:51:50.075Z
+src/test/java/org/geotools/dggs/clickhouse/ClickHouseJDBCTestSetup.java 2022-03-17T18:51:50.075Z
+src/test/java/org/geotools/dggs/clickhouse/ClickHouseOnlineTestCase.java 2022-03-28T11:37:05.866Z
+src/test/java/org/geotools/dggs/clickhouse/ClickHouseRHealPixOnlineTest.java 2022-03-28T11:37:05.866Z

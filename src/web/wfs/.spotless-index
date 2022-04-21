@@ -1,0 +1,5 @@
++HOmyLBetlxtiYdGdMVcnQIssajDw2vMGiP016AD48o=
+src/main/java/org/geoserver/wfs/web/WFSAdminPage.java 2022-05-03T20:26:48.564Z
+src/main/java/org/geoserver/wfs/web/publish/WFSLayerConfig.java 2022-03-28T11:37:06.202Z
+src/test/java/org/geoserver/wfs/web/WFSAdminPageTest.java 2022-05-03T20:26:48.568Z
+src/test/java/org/geoserver/wfs/web/WFSLayerConfigTest.java 2022-03-17T18:51:50.643Z

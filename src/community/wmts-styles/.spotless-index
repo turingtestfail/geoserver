@@ -1,0 +1,6 @@
+gc66r/z2Rw34xpCt4jIznYBojdn/jq8AX8ymhPJK10k=
+src/main/java/org/geoserver/gwc/wmts/ResourceConveyor.java 2022-03-17T18:51:50.243770Z
+src/main/java/org/geoserver/gwc/wmts/ResourceFactory.java 2022-03-17T18:51:50.243770Z
+src/main/java/org/geoserver/gwc/wmts/StyleResourceFactory.java 2022-03-28T11:37:05.930019Z
+src/main/java/org/geoserver/gwc/wmts/StylesExtension.java 2022-03-17T18:51:50.243770Z
+src/test/java/org/geoserver/gwc/wmts/StylesExtensionTest.java 2022-03-17T18:51:50.247771Z

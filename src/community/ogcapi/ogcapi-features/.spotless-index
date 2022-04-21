@@ -1,0 +1,23 @@
+oK9WKcJQPWBTyHYY/j9R7kNX4vzx9TbLkJ4fCXQva+g=
+src/main/java/org/geoserver/ogcapi/features/CollectionDocument.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/features/CollectionsDocument.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/features/FeatureResponseMessageConverter.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/features/FeatureService.java 2022-03-28T11:38:35.630Z
+src/main/java/org/geoserver/ogcapi/features/FeaturesAPIBuilder.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/features/FeaturesExceptionHandler.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/features/FeaturesGetFeature.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/features/FeaturesLandingPage.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/features/FeaturesResponse.java 2022-03-28T11:36:16.977Z
+src/main/java/org/geoserver/ogcapi/features/FeaturesSampleDataProvider.java 2022-03-28T11:37:05.878Z
+src/main/java/org/geoserver/ogcapi/features/GetFeatureHTMLMessageConverter.java 2022-03-28T11:36:16.977Z
+src/main/java/org/geoserver/ogcapi/features/HttpHeaderLinksAppender.java 2022-03-28T11:36:16.977Z
+src/main/java/org/geoserver/ogcapi/features/RFCGeoJSONFeaturesResponse.java 2022-03-28T11:37:05.878Z
+src/test/java/org/geoserver/ogcapi/features/ApiTest.java 2022-03-28T11:38:35.630Z
+src/test/java/org/geoserver/ogcapi/features/CollectionTest.java 2022-03-28T11:37:05.878Z
+src/test/java/org/geoserver/ogcapi/features/CollectionsTest.java 2022-03-28T11:37:05.878Z
+src/test/java/org/geoserver/ogcapi/features/ComplexFeaturesTest.java 2022-03-28T11:37:05.878Z
+src/test/java/org/geoserver/ogcapi/features/ConformanceTest.java 2022-03-28T11:37:05.878Z
+src/test/java/org/geoserver/ogcapi/features/FeatureTest.java 2022-04-12T19:24:39.805Z
+src/test/java/org/geoserver/ogcapi/features/FeaturesTestSupport.java 2022-03-28T11:36:16.977Z
+src/test/java/org/geoserver/ogcapi/features/FunctionsTest.java 2022-03-28T11:37:05.882Z
+src/test/java/org/geoserver/ogcapi/features/LandingPageTest.java 2022-03-28T11:37:05.882Z

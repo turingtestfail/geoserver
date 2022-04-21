@@ -1,0 +1,20 @@
++H5yNTsP3HJA1B46Y13g0TBoBoBMRLYX/L64OjujazE=
+src/main/java/org/geoserver/security/ldap/BindingLdapAuthoritiesPopulator.java 2022-05-03T20:26:48.356Z
+src/main/java/org/geoserver/security/ldap/BindingLdapTemplate.java 2022-05-03T20:26:48.356Z
+src/main/java/org/geoserver/security/ldap/GeoserverLdapBindAuthenticator.java 2022-03-17T18:51:50.523Z
+src/main/java/org/geoserver/security/ldap/LDAPAuthenticationProvider.java 2022-03-28T11:36:15.461Z
+src/main/java/org/geoserver/security/ldap/LDAPBaseSecurityService.java 2022-05-03T20:26:48.356Z
+src/main/java/org/geoserver/security/ldap/LDAPBaseSecurityServiceConfig.java 2022-03-17T18:51:50.523Z
+src/main/java/org/geoserver/security/ldap/LDAPRoleService.java 2022-05-03T20:26:48.356Z
+src/main/java/org/geoserver/security/ldap/LDAPRoleServiceConfig.java 2022-03-17T18:51:50.523Z
+src/main/java/org/geoserver/security/ldap/LDAPSecurityProvider.java 2022-03-17T18:51:50.523Z
+src/main/java/org/geoserver/security/ldap/LDAPSecurityServiceConfig.java 2022-03-17T18:51:50.523Z
+src/main/java/org/geoserver/security/ldap/LDAPUserGroupService.java 2022-05-03T20:26:48.356Z
+src/main/java/org/geoserver/security/ldap/LDAPUserGroupServiceConfig.java 2022-03-17T18:51:50.523Z
+src/main/java/org/geoserver/security/ldap/LDAPUtils.java 2022-05-03T20:26:48.356Z
+src/test/java/org/geoserver/security/ldap/EmbeddedLdapServer.java 2022-03-17T18:51:50.523Z
+src/test/java/org/geoserver/security/ldap/LDAPAuthenticationProviderTest.java 2022-03-28T11:37:06.126Z
+src/test/java/org/geoserver/security/ldap/LDAPBaseTest.java 2022-03-17T18:51:50.523Z
+src/test/java/org/geoserver/security/ldap/LDAPRoleServiceTest.java 2022-05-03T20:26:48.360Z
+src/test/java/org/geoserver/security/ldap/LDAPTestUtils.java 2022-05-03T20:26:48.360Z
+src/test/java/org/geoserver/security/ldap/LDAPUserGroupServiceTest.java 2022-03-28T11:37:06.126Z

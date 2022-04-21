@@ -1,0 +1,10 @@
+8Ha2GMGKZNyUKv26Pi9MEA6BPQ4q5MPRGQBXeLg4jI8=
+src/main/java/org/geoserver/security/auth/web/WebAuthConfigException.java 2022-03-28T11:37:05.930019Z
+src/main/java/org/geoserver/security/auth/web/WebAuthenticationConfig.java 2022-03-28T11:37:05.930019Z
+src/main/java/org/geoserver/security/auth/web/WebAuthenticationConfigValidator.java 2022-03-28T11:37:05.930019Z
+src/main/java/org/geoserver/security/auth/web/WebServiceAuthenticationProvider.java 2022-03-28T11:37:05.930019Z
+src/main/java/org/geoserver/security/auth/web/WebServiceSecurityProvider.java 2022-03-28T11:37:05.930019Z
+src/main/java/org/geoserver/security/web/auth/WebAuthProviderPanel.java 2022-03-28T11:37:05.930019Z
+src/main/java/org/geoserver/security/web/auth/WebAuthProviderPanelInfo.java 2022-03-28T11:37:05.930019Z
+src/test/java/org/geoserver/security/auth/WebAuthPanelTest.java 2022-03-28T11:37:05.930019Z
+src/test/java/org/geoserver/security/auth/WebAuthProviderTest.java 2022-03-28T11:37:05.930019Z

@@ -1,0 +1,9 @@
+QpEb3H88u6GmOyqy8QeL68VGc7WKm9iuOEOO2xl5HxI=
+src/main/java/org/geoserver/wms/dynamic/legendgraphic/DynamicGetLegendGraphicDispatcherCallback.java 2022-03-17T18:51:49.939Z
+src/main/java/org/geotools/process/raster/DynamicColorMapProcess.java 2022-03-28T11:37:05.826Z
+src/main/java/org/geotools/process/raster/FilterFunction_bandStats.java 2022-03-28T11:37:05.826Z
+src/main/java/org/geotools/process/raster/FilterFunction_gridCoverageProperty.java 2022-03-28T11:37:05.826Z
+src/main/java/org/geotools/process/raster/FilterFunction_gridCoverageStats.java 2022-03-28T11:37:05.826Z
+src/main/java/org/geotools/process/raster/FilterFunction_svgColorMap.java 2022-03-28T11:37:05.826Z
+src/test/java/org/geoserver/wms/dynamic/legendgraphic/DynamicGetLegendGraphicsCallbackTest.java 2022-03-28T11:37:05.826Z
+src/test/java/org/geotools/process/raster/DynamicColorMapTest.java 2022-03-28T11:37:05.830Z
