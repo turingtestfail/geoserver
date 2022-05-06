@@ -1,0 +1,5 @@
+qHzmRhe1P+fChSkQdszwT3uFMBy5pxsMOQxr2QlsqG4=
+src/main/java/org/geoserver/wfs/web/WFSAdminPage.java 2022-05-13T12:56:41.962443Z
+src/main/java/org/geoserver/wfs/web/publish/WFSLayerConfig.java 2022-05-13T12:56:41.962443Z
+src/test/java/org/geoserver/wfs/web/WFSAdminPageTest.java 2022-05-13T12:56:41.966442Z
+src/test/java/org/geoserver/wfs/web/WFSLayerConfigTest.java 2022-03-17T18:51:50.643Z

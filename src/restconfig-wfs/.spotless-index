@@ -1,0 +1,6 @@
+0FATJrfeIh22Tm0Y9Nb1vitBoe0LydZR7cCYCa5EPKQ=
+src/main/java/org/geoserver/rest/service/WFSSettingsController.java 2022-05-13T12:56:41.486Z
+src/test/java/org/geoserver/rest/catalog/DataStoreFileUploadWFSTest.java 2022-05-13T12:56:41.490Z
+src/test/java/org/geoserver/rest/catalog/FeatureTypeControllerWFSTest.java 2022-05-13T12:56:41.490Z
+src/test/java/org/geoserver/rest/service/LocalWFSSettingsControllerTest.java 2022-05-13T12:56:41.490Z
+src/test/java/org/geoserver/rest/service/WFSSettingsControllerTest.java 2022-03-17T18:51:50.503Z

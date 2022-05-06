@@ -1,0 +1,11 @@
+vk8QCt58OA+iFxgEY56aERb3Mbf15h/BWbOit2K/lsQ=
+src/main/java/org/geoserver/csw/store/simple/CSWAnyExpander.java 2022-03-17T18:51:50.291777Z
+src/main/java/org/geoserver/csw/store/simple/GeoServerSimpleCatalogStore.java 2022-03-17T18:51:50.291777Z
+src/main/java/org/geoserver/csw/store/simple/RecordTextFunction.java 2022-05-13T12:56:40.630682Z
+src/main/java/org/geoserver/csw/store/simple/RecordsFeatureCollection.java 2022-05-13T12:56:40.630682Z
+src/main/java/org/geoserver/csw/store/simple/RetypingFeatureCollection.java 2022-05-13T12:56:40.630682Z
+src/main/java/org/geoserver/csw/store/simple/RetypingIterator.java 2022-05-13T12:56:40.630682Z
+src/main/java/org/geoserver/csw/store/simple/SimpleCatalogStore.java 2022-05-13T12:56:40.634681Z
+src/main/java/org/geoserver/csw/store/simple/SimpleRecordIterator.java 2022-03-17T18:51:50.291777Z
+src/test/java/org/geoserver/csw/store/simple/RecordTextFunctionTest.java 2022-05-13T12:56:40.634681Z
+src/test/java/org/geoserver/csw/store/simple/SimpleCatalogStoreTest.java 2022-05-13T12:56:40.634681Z

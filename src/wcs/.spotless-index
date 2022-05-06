@@ -1,0 +1,20 @@
+IKsKOKOY36Sz26hb2ZFZX/n9oVJstkpDKL04PVRpYA4=
+src/main/java/org/geoserver/wcs/CoverageCleanerCallback.java 2022-05-13T12:56:41.578Z
+src/main/java/org/geoserver/wcs/WCSFactoryExtension.java 2022-05-13T12:56:41.582Z
+src/main/java/org/geoserver/wcs/WCSInfo.java 2022-05-13T12:56:41.582Z
+src/main/java/org/geoserver/wcs/WCSInfoImpl.java 2022-05-13T12:56:41.582Z
+src/main/java/org/geoserver/wcs/WCSLoader.java 2022-05-13T12:56:41.582Z
+src/main/java/org/geoserver/wcs/WCSResourceVoter.java 2022-03-17T18:51:50.531Z
+src/main/java/org/geoserver/wcs/WCSXStreamLoader.java 2022-05-13T12:56:41.582Z
+src/main/java/org/geoserver/wcs/responses/AscCoverageResponseDelegate.java 2022-05-13T12:56:41.582Z
+src/main/java/org/geoserver/wcs/responses/BaseCoverageResponseDelegate.java 2022-05-13T12:56:41.582Z
+src/main/java/org/geoserver/wcs/responses/CoverageDelegateHandler.java 2022-05-13T12:56:41.582Z
+src/main/java/org/geoserver/wcs/responses/CoverageEncoder.java 2022-03-17T18:51:50.531Z
+src/main/java/org/geoserver/wcs/responses/CoverageResponseDelegate.java 2022-05-13T12:56:41.582Z
+src/main/java/org/geoserver/wcs/responses/CoverageResponseDelegateFinder.java 2022-05-13T12:56:41.582Z
+src/main/java/org/geoserver/wcs/responses/DebugCoverageResponseDelegate.java 2022-05-13T12:56:41.582Z
+src/main/java/org/geoserver/wcs/responses/GeoTIFFCoverageResponseDelegate.java 2022-05-13T12:56:41.582Z
+src/main/java/org/geoserver/wcs/responses/GeoTiffWriterHelper.java 2022-05-13T12:56:41.582Z
+src/main/java/org/geoserver/wcs/responses/IMGCoverageResponseDelegate.java 2022-05-13T12:56:41.586Z
+src/main/java/org/vfny/geoserver/util/WCSUtils.java 2022-05-13T12:56:41.586Z
+src/main/java/org/vfny/geoserver/wcs/WcsException.java 2022-03-17T18:51:50.531Z

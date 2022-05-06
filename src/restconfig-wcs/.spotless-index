@@ -1,0 +1,5 @@
+YKwwG+Czfxh8vUOcbrD7l5ZNRGYWcyD3aEClhXD9iGw=
+src/main/java/org/geoserver/rest/service/WCSSettingsController.java 2022-05-13T12:56:41.486Z
+src/test/java/org/geoserver/rest/catalog/CoverageControllerWCSTest.java 2022-05-13T12:56:41.486Z
+src/test/java/org/geoserver/rest/service/LocalWCSSettingsControllerTest.java 2022-05-13T12:56:41.486Z
+src/test/java/org/geoserver/rest/service/WCSSettingsControllerTest.java 2022-05-13T12:56:41.486Z

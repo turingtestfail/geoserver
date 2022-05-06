@@ -1,0 +1,13 @@
+u9ac9Is+VdLj9/Q6jVPjWZPdp2c32IJOc5qr048Zet8=
+src/main/java/org/geoserver/wfs/response/DXFOutputFormat.java 2022-05-13T12:56:40.638680Z
+src/main/java/org/geoserver/wfs/response/dxf/AbstractDXFWriter.java 2022-05-13T12:56:40.638680Z
+src/main/java/org/geoserver/wfs/response/dxf/DXFWriter.java 2022-05-13T12:56:40.638680Z
+src/main/java/org/geoserver/wfs/response/dxf/DXFWriterFinder.java 2022-03-17T18:51:50.295778Z
+src/main/java/org/geoserver/wfs/response/dxf/LineType.java 2022-05-13T12:56:40.638680Z
+src/main/java/org/geoserver/wfs/response/dxf/LineTypeItem.java 2022-05-13T12:56:40.638680Z
+src/main/java/org/geoserver/wfs/response/dxf/Rel14DXFWriter.java 2022-05-13T12:56:40.642679Z
+src/main/java/org/geoserver/wfs/response/dxf/util/JulianDate.java 2022-05-13T12:56:40.642679Z
+src/test/java/org/geoserver/dxf/ModuleStatusTest.java 2022-05-13T12:56:40.642679Z
+src/test/java/org/geoserver/wfs/response/DXFOutputFormatTest.java 2022-05-13T12:56:40.642679Z
+src/test/java/org/geoserver/wfs/response/LayersKvpParser.java 2022-05-13T12:56:40.642679Z
+src/test/java/org/geoserver/wfs/response/dxf/util/JulianDateTest.java 2022-05-13T12:56:40.642679Z

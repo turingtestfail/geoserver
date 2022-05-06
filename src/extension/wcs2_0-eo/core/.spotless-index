@@ -1,0 +1,21 @@
+i6UJx+8kJjUVtMltt3WY8jv2z0AfCbBkEPz/azO6ktg=
+src/main/java/org/geoserver/wcs2_0/eo/DescribeEOCoverageSetInterceptor.java 2022-05-13T12:56:40.890635Z
+src/main/java/org/geoserver/wcs2_0/eo/EOCoverageResourceCodec.java 2022-05-13T12:56:40.890635Z
+src/main/java/org/geoserver/wcs2_0/eo/GetCoverageEOCallback.java 2022-03-17T18:51:50.351786Z
+src/main/java/org/geoserver/wcs2_0/eo/WCSEOMetadata.java 2022-03-17T18:51:50.351786Z
+src/main/java/org/geoserver/wcs2_0/eo/kvp/WCS20DescribeEOCoverageSetRequestReader.java 2022-05-13T12:56:40.890635Z
+src/main/java/org/geoserver/wcs2_0/eo/response/DescribeEOCoverageSetTransformer.java 2022-05-13T12:56:40.894634Z
+src/main/java/org/geoserver/wcs2_0/eo/response/GranuleCoverageExtension.java 2022-05-13T12:56:40.894634Z
+src/main/java/org/geoserver/wcs2_0/eo/response/GranuleCoverageInfo.java 2022-03-17T18:51:50.351786Z
+src/main/java/org/geoserver/wcs2_0/eo/response/SingleGranuleGridCoverageReader.java 2022-05-13T12:56:40.894634Z
+src/main/java/org/geoserver/wcs2_0/eo/response/WCS20DescribeEOCoverageSetResponse.java 2022-05-13T12:56:40.894634Z
+src/main/java/org/geoserver/wcs2_0/eo/response/WCSEOCoverageMetadataProvider.java 2022-03-17T18:51:50.355786Z
+src/main/java/org/geoserver/wcs2_0/eo/response/WCSEOExtendedCapabilitiesProvider.java 2022-05-13T12:56:40.894634Z
+src/main/java/org/geoserver/wcs2_0/eo/xml/WcsEOXmlReader.java 2022-05-13T12:56:40.894634Z
+src/test/java/org/geoserver/wcs2_0/eo/DescribeCoverageTest.java 2022-03-17T18:51:50.355786Z
+src/test/java/org/geoserver/wcs2_0/eo/DescribeOECoverageSetTest.java 2022-03-17T18:51:50.355786Z
+src/test/java/org/geoserver/wcs2_0/eo/GetCapabilitiesTest.java 2022-03-17T18:51:50.355786Z
+src/test/java/org/geoserver/wcs2_0/eo/GetCoverageTest.java 2022-05-13T12:56:40.894634Z
+src/test/java/org/geoserver/wcs2_0/eo/GranuleCoverageExtensionTest.java 2022-03-17T18:51:50.355786Z
+src/test/java/org/geoserver/wcs2_0/eo/ModuleStatusTest.java 2022-05-13T12:56:40.894634Z
+src/test/java/org/geoserver/wcs2_0/eo/WCSEOTestSupport.java 2022-05-13T12:56:40.894634Z

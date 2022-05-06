@@ -1,0 +1,9 @@
+unGjBdbUbcWMC3S/DidZvhsA4yST1GcmOgPcfQp8uz8=
+src/main/java/org/geoserver/filter/function/CollectGeometriesFunction.java 2022-05-13T12:56:40.858641Z
+src/main/java/org/geoserver/filter/function/QueryFunction.java 2022-05-13T12:56:40.858641Z
+src/main/java/org/geoserver/filter/function/QueryFunctionFactoryInitializer.java 2022-05-13T12:56:40.858641Z
+src/main/java/org/geoserver/filter/function/QueryLayerFunctionFactory.java 2022-05-13T12:56:40.858641Z
+src/test/java/org/geoserver/filter/function/GeometryCollectorFunctionTest.java 2022-05-13T12:56:40.862640Z
+src/test/java/org/geoserver/filter/function/ModuleStatusTest.java 2022-05-13T12:56:40.862640Z
+src/test/java/org/geoserver/filter/function/QueryLayerFunctionTest.java 2022-05-13T12:56:40.862640Z
+src/test/java/org/geoserver/filter/function/WFSFilteringTest.java 2022-03-17T18:51:50.343785Z

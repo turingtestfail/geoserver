@@ -1,0 +1,11 @@
+XU2iipa+7hzUUdaV2TQ4SyNMqUdTZ8q5WmlnYk0bwoA=
+src/main/java/org/geoserver/ogr/core/AbstractToolConfigurator.java 2022-05-13T12:56:40.838644Z
+src/main/java/org/geoserver/ogr/core/AbstractToolWrapper.java 2022-05-13T12:56:40.838644Z
+src/main/java/org/geoserver/ogr/core/Format.java 2022-05-13T12:56:40.838644Z
+src/main/java/org/geoserver/ogr/core/FormatAdapter.java 2022-03-17T18:51:50.339784Z
+src/main/java/org/geoserver/ogr/core/FormatConverter.java 2022-05-13T12:56:40.838644Z
+src/main/java/org/geoserver/ogr/core/OGRModuleStatus.java 2022-05-13T12:56:40.838644Z
+src/main/java/org/geoserver/ogr/core/OutputType.java 2022-03-17T18:51:50.339784Z
+src/main/java/org/geoserver/ogr/core/ToolConfiguration.java 2022-03-17T18:51:50.339784Z
+src/main/java/org/geoserver/ogr/core/ToolWrapper.java 2022-05-13T12:56:40.842644Z
+src/main/java/org/geoserver/ogr/core/ToolWrapperFactory.java 2022-03-17T18:51:50.339784Z

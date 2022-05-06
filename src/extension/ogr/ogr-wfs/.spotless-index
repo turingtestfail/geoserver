@@ -1,0 +1,12 @@
+RJ/4MrJCKEQ8tP/TlENELyEyqNWx2Z4AlqeQNQs31kU=
+src/main/java/org/geoserver/wfs/response/OGRWFSModuleStatus.java 2022-05-13T12:56:40.842644Z
+src/main/java/org/geoserver/wfs/response/OGRWrapper.java 2022-05-13T12:56:40.842644Z
+src/main/java/org/geoserver/wfs/response/OGRWrapperFactory.java 2022-03-17T18:51:50.339784Z
+src/main/java/org/geoserver/wfs/response/Ogr2OgrConfigurator.java 2022-03-17T18:51:50.339784Z
+src/main/java/org/geoserver/wfs/response/Ogr2OgrOutputFormat.java 2022-05-13T12:56:40.842644Z
+src/main/java/org/geoserver/wfs/response/OgrConfiguration.java 2022-03-17T18:51:50.339784Z
+src/main/java/org/geoserver/wfs/response/OgrFormat.java 2022-05-13T12:56:40.842644Z
+src/test/java/org/geoserver/wfs/response/OGRWrapperTest.java 2022-05-13T12:56:40.842644Z
+src/test/java/org/geoserver/wfs/response/Ogr2OgrFormatTest.java 2022-05-13T12:56:40.842644Z
+src/test/java/org/geoserver/wfs/response/Ogr2OgrTestUtil.java 2022-05-13T12:56:40.846643Z
+src/test/java/org/geoserver/wfs/response/Ogr2OgrWfsTest.java 2022-05-13T12:56:40.846643Z

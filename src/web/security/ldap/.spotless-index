@@ -1,0 +1,10 @@
+6BxowYKuriHka2vKPug8s+YS8dACIPC9xJBX5EuADu8=
+src/main/java/org/geoserver/web/security/ldap/LDAPAuthProviderPanel.java 2022-05-13T12:56:41.950445Z
+src/main/java/org/geoserver/web/security/ldap/LDAPAuthProviderPanelInfo.java 2022-03-17T18:51:50.639Z
+src/main/java/org/geoserver/web/security/ldap/LDAPRoleServicePanel.java 2022-05-18T20:22:53.947596Z
+src/main/java/org/geoserver/web/security/ldap/LDAPRoleServicePanelInfo.java 2022-03-17T18:51:50.639Z
+src/main/java/org/geoserver/web/security/ldap/LDAPUserGroupServicePanel.java 2022-03-17T18:51:50.639Z
+src/main/java/org/geoserver/web/security/ldap/LDAPUserGroupServicePanelInfo.java 2022-03-17T18:51:50.639Z
+src/test/java/org/geoserver/web/security/ldap/LDAPAuthProviderPanelTest.java 2022-05-13T12:56:41.950445Z
+src/test/java/org/geoserver/web/security/ldap/LDAPRoleServicePanelTest.java 2022-05-13T12:56:41.950445Z
+src/test/java/org/geoserver/web/security/ldap/LDAPUserGroupServicePanelTest.java 2022-05-13T12:56:41.950445Z
