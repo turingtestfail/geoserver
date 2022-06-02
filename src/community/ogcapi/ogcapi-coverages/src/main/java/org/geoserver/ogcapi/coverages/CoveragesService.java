@@ -249,7 +249,7 @@ public class CoveragesService {
             DateRange range = (DateRange) timeSpec;
             timeTrim.setDimension("time");
             timeTrim.setTrimLow(ISO_INSTANT.format(range.getMinValue().toInstant()));
-            timeTrim.setTrimLow(ISO_INSTANT.format(range.getMaxValue().toInstant()));
+            timeTrim.setTrimHigh(ISO_INSTANT.format(range.getMaxValue().toInstant()));
             request.getDimensionSubset().add(timeTrim);
         }
     }
