@@ -91,6 +91,7 @@
             <descriptor>release/ext-libdeflate.xml</descriptor>
             <descriptor>release/ext-stac-datastore.xml</descriptor>
             <descriptor>release/ext-vector-mosaic-datastore.xml</descriptor>
+            <descriptor>release/ext-web-linking-mangling.xml</descriptor>
           </descriptors>
         </configuration>
       </plugin>
@@ -188,6 +189,12 @@
       </modules>
     </profile>
     <profile>
+      <id>web-linking-mangling</id>
+      <modules>
+        <module>web-linking-mangling</module>
+      </modules>
+    </profile>
+    <profile>
       <id>communityRelease</id>
       <modules>
         <module>dds</module>
@@ -244,6 +251,7 @@
         <module>teradata</module>
         <module>libdeflate</module>
         <module>vector-mosaic</module>
+        <module>web-linking-mangling</module>
       </modules>
     </profile>
     <profile>
