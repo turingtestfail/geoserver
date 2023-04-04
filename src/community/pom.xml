@@ -24,6 +24,10 @@
       <artifactId>javax.servlet-api</artifactId>
       <scope>provided</scope>
     </dependency>
+      <dependency>
+          <groupId>org.geoserver.web</groupId>
+          <artifactId>gs-web-core</artifactId>
+      </dependency>
   </dependencies>
   <build>
     <plugins>
