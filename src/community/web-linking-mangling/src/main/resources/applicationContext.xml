@@ -14,17 +14,17 @@ application directory.
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-    <bean id="paramsExtractorConfigPage" class="org.geoserver.web.MenuPageInfo">
+    <bean id="webLinkingManglingConfigPage" class="org.geoserver.web.MenuPageInfo">
         <property name="id" value="webLinkingManglingConfigPage"/>
         <property name="titleKey" value="WebLinkingManglingConfigPage.page.title"/>
         <property name="descriptionKey" value="WebLinkingManglingConfigPage.page.description"/>
         <property name="componentClass" value="org.geoserver.linking.mangling.web.WebLinkingManglingConfigPage"/>
         <property name="category" ref="settingsCategory" />
-        <property name="order" value="100" />
+        <property name="order" value="200" />
         <property name="icon" value="img/direction-pencil.png" />
     </bean>
     
-    <bean id="ParamExtExtension"
+    <bean id="WebLinkingManglingModule"
 		class="org.geoserver.platform.ModuleStatusImpl">
 		<property name="module" value="gs-web-linking-mangling" />
 		<property name="name" value="Web Linking Mangling Extension" />
@@ -32,4 +32,9 @@ application directory.
 		<property name="available" value="true" />
 		<property name="enabled" value="true" />
 	</bean>
+
+    <bean id="webLinkingUrlMangler" class="org.geoserver.linking.mangling.WebLinkingUrlMangler" >
+        <constructor-arg ref="dataDirectory"/>
+    </bean>
+
 </beans>
