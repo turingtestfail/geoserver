@@ -18,11 +18,18 @@ public class WebLinkingUrlMangler implements URLMangler {
     public static final String TEMPLATE_POSTFIX = "}";
     public static final String PROTOCOL_SEPARATOR = "://";
 
-    protected List<LinkingManglerRule> linkingManglerRules;
+    private List<LinkingManglerRule> linkingManglerRules;
     public WebLinkingUrlMangler(GeoServerDataDirectory dataDirectory) {
         Resource resource = dataDirectory.get(LinkingManglerRuleDAO.LINKING_MANGLE_RULES_PATH);
         linkingManglerRules = getLinkingManglerRules(resource);
         resource.addListener(notify -> linkingManglerRules = getLinkingManglerRules(resource));
+    }
+
+    /**
+     * Constructor for testing purposes
+     */
+    protected WebLinkingUrlMangler(List<LinkingManglerRule> linkingManglerRules){
+        this.linkingManglerRules=linkingManglerRules;
     }
 
 
