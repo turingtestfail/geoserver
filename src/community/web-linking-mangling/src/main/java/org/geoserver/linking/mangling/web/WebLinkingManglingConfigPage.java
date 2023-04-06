@@ -6,15 +6,7 @@ package org.geoserver.linking.mangling.web;
 
 import org.geoserver.web.GeoServerSecuredPage;
 
-import java.util.Optional;
-
 public class WebLinkingManglingConfigPage extends GeoServerSecuredPage {
 
-
-    public WebLinkingManglingConfigPage() {
-
-    }
-
-
-
+    public WebLinkingManglingConfigPage() {}
 }
