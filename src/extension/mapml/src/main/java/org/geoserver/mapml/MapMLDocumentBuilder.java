@@ -355,6 +355,7 @@ public class MapMLDocumentBuilder {
         MapMLLayerMetadata mapMLLayerMetadata = new MapMLLayerMetadata();
         mapMLLayerMetadata.setLayerMeta(new MetadataMap());
         mapMLLayerMetadata.setUseTiles(false);
+        useFeaturesAllLayers = allLayersUsingFeatures(layers);
         mapMLLayerMetadata.setLayerName(layersCommaDelimited);
         mapMLLayerMetadata.setStyleName(stylesCommaDelimited);
         mapMLLayerMetadata.setTimeEnabled(false);
@@ -381,6 +382,7 @@ public class MapMLDocumentBuilder {
                     layer.getPublishedInfo().getMetadata().get(MAPML_USE_FEATURES, Boolean.class);
             Boolean isVector = (PublishedType.VECTOR == layer.getPublishedInfo().getType());
             if (useFeatures == null || isVector == null || !useFeatures || !isVector) {
+
                 return false;
             }
         }

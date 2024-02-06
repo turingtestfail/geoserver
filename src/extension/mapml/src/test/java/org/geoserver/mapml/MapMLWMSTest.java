@@ -296,7 +296,6 @@ public class MapMLWMSTest extends MapMLTestSupport {
                         "EPSG:3857",
                         null,
                         false);
-
         List<Link> extentLinks =
                 getTypeFromInputOrDataListOrLink(
                         mapmlExtent.getBody().getExtents().get(0).getInputOrDatalistOrLink(),

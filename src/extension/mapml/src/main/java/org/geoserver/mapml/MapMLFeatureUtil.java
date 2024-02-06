@@ -89,7 +89,6 @@ public class MapMLFeatureUtil {
         if (alternateProjections != null) {
             links.addAll(alternateProjections);
         }
-
         String licenseLink = layerMeta.get("mapml.licenseLink", String.class);
         String licenseTitle = layerMeta.get("mapml.licenseTitle", String.class);
         if (licenseLink != null || licenseTitle != null) {
