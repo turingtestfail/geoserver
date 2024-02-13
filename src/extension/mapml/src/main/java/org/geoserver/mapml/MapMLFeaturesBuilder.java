@@ -98,7 +98,6 @@ public class MapMLFeaturesBuilder {
 
         LayerInfo layerInfo = geoServer.getCatalog().getLayerByName(fc.getSchema().getTypeName());
         CoordinateReferenceSystem crs = mapContent.getRequest().getCrs();
-
         FeatureType featureType = fc.getSchema();
         ResourceInfo meta =
                 geoServer.getCatalog().getResourceByName(featureType.getName(), ResourceInfo.class);
