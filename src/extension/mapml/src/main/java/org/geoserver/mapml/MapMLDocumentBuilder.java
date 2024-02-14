@@ -382,7 +382,6 @@ public class MapMLDocumentBuilder {
                     layer.getPublishedInfo().getMetadata().get(MAPML_USE_FEATURES, Boolean.class);
             Boolean isVector = (PublishedType.VECTOR == layer.getPublishedInfo().getType());
             if (useFeatures == null || isVector == null || !useFeatures || !isVector) {
-
                 return false;
             }
         }
@@ -524,6 +523,7 @@ public class MapMLDocumentBuilder {
         boolean isTransparent = true;
         String styleName = null;
         boolean tileLayerExists = false;
+        boolean isVector = true;
         if (isLayerGroup) {
             layerGroupInfo = (LayerGroupInfo) layer.getPublishedInfo();
             if (layerGroupInfo == null) {
@@ -544,8 +544,9 @@ public class MapMLDocumentBuilder {
         } else {
             layerInfo = (LayerInfo) layer.getPublishedInfo();
             resourceInfo = layerInfo.getResource();
+            isVector = (PublishedType.VECTOR == layerInfo.getType());
             bbox = layerInfo.getResource().getLatLonBoundingBox();
-            layerMeta = resourceInfo.getMetadata();
+            layerMeta = layerInfo.getMetadata();
             workspace =
                     (resourceInfo.getStore().getWorkspace() != null
                             ? resourceInfo.getStore().getWorkspace().getName()
