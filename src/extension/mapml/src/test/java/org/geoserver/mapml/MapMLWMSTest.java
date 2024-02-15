@@ -282,7 +282,6 @@ public class MapMLWMSTest extends MapMLTestSupport {
         li2.getMetadata().put(MAPML_USE_FEATURES, true);
         li2.getMetadata().put(MAPML_USE_TILES, false);
         cat.save(li2);
-<<<<<<< HEAD
 
         LayerInfo li3 = cat.getLayerByName(MockData.WORLD.getLocalPart());
         li3.getMetadata().put(MAPML_USE_FEATURES, true);
@@ -291,22 +290,13 @@ public class MapMLWMSTest extends MapMLTestSupport {
 
         Mapml mapmlExtent =
                 getWMSAsMapML(
-=======
-
-        LayerInfo li3 = cat.getLayerByName(MockData.WORLD.getLocalPart());
-        li3.getMetadata().put(MAPML_USE_FEATURES, true);
-        li3.getMetadata().put(MAPML_USE_TILES, false);
-        cat.save(li3);
-
-        MockRequestResponse requestResponse =
-                getMockRequestResponse(
->>>>>>> cc5148502e (check for raster and more constants)
                         MockData.POLYGONS.getLocalPart() + "," + MockData.LINES.getLocalPart(),
                         null,
                         null,
                         "EPSG:3857",
                         null,
                         false);
+
         List<Link> extentLinks =
                 getTypeFromInputOrDataListOrLink(
                         mapmlExtent.getBody().getExtents().get(0).getInputOrDatalistOrLink(),
@@ -322,13 +312,9 @@ public class MapMLWMSTest extends MapMLTestSupport {
         // now we change one of the layers to not return features
         li.getMetadata().put(MAPML_USE_FEATURES, false);
         cat.save(li);
-<<<<<<< HEAD
+
         Mapml mapmlOneNotFeatures =
                 getWMSAsMapML(
-=======
-        MockRequestResponse requestResponseOneNotFeatures =
-                getMockRequestResponse(
->>>>>>> cc5148502e (check for raster and more constants)
                         MockData.POLYGONS.getLocalPart() + "," + MockData.LINES.getLocalPart(),
                         null,
                         null,
@@ -360,13 +346,9 @@ public class MapMLWMSTest extends MapMLTestSupport {
         // now we add a raster layer
         li.getMetadata().put(MAPML_USE_FEATURES, true);
         cat.save(li);
-<<<<<<< HEAD
+
         Mapml mapmlOneRaster =
                 getWMSAsMapML(
-=======
-        MockRequestResponse requestResponseOneRaster =
-                getMockRequestResponse(
->>>>>>> cc5148502e (check for raster and more constants)
                         "layerGroup"
                                 + ","
                                 + MockData.POLYGONS.getLocalPart()
@@ -375,21 +357,9 @@ public class MapMLWMSTest extends MapMLTestSupport {
                         null,
                         null,
                         "EPSG:3857",
-<<<<<<< HEAD
                         null,
                         false);
 
-=======
-                        null);
-        StringReader readerOneRaster =
-                new StringReader(requestResponseOneRaster.response.getContentAsString());
-        Mapml mapmlOneRaster = null;
-        try {
-            mapmlOneRaster = encoder.decode(readerOneRaster);
-        } catch (DataBindingException e) {
-            fail("MapML response is not valid XML");
-        }
->>>>>>> cc5148502e (check for raster and more constants)
         List<Link> extentLinksOneRaster =
                 getTypeFromInputOrDataListOrLink(
                         mapmlOneRaster.getBody().getExtents().get(0).getInputOrDatalistOrLink(),
