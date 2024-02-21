@@ -28,6 +28,8 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
     protected void onSetUp(SystemTestData testData) throws Exception {
         super.onSetUp(testData);
         Catalog catalog = getCatalog();
+        testData.addStyle("polygonFilter", "polygonFilter.sld", getClass(), catalog);
+        testData.addStyle("polygonElseFilter", "polygonElseFilter.sld", getClass(), catalog);
         String points = MockData.POINTS.getLocalPart();
         String lines = MockData.LINES.getLocalPart();
         String polygons = MockData.POLYGONS.getLocalPart();
@@ -94,6 +96,47 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
                         .getPolygon().get(0).getThreeOrMoreCoordinatePairs().get(0).getValue()
                                 .stream()
                                 .collect(Collectors.joining(",")));
+    }
+
+    @Test
+    public void testMapMLUseFeaturesWithSLDFilter() throws Exception {
+        Catalog cat = getCatalog();
+        LayerInfo li = cat.getLayerByName(MockData.BUILDINGS.getLocalPart());
+        li.getMetadata().put(MAPML_USE_FEATURES, true);
+        li.getMetadata().put(MAPML_USE_TILES, false);
+        li.getStyles().add(cat.getStyleByName("polygonFilter"));
+        li.getStyles().add(cat.getStyleByName("polygonElseFilter"));
+        li.setDefaultStyle(cat.getStyleByName("polygonFilter"));
+        cat.save(li);
+        Mapml mapmlFeatures =
+                getWMSAsMapML(
+                        MockData.BUILDINGS.getLocalPart(),
+                        null,
+                        null,
+                        null,
+                        "EPSG:4326",
+                        "polygonFilter",
+                        true);
+
+        assertEquals(
+                "Buildings layer has two features, only one should show up after the SLD is applied",
+                1,
+                mapmlFeatures.getBody().getFeatures().size());
+
+        Mapml mapmlFeaturesElse =
+                getWMSAsMapML(
+                        MockData.BUILDINGS.getLocalPart(),
+                        null,
+                        null,
+                        null,
+                        "EPSG:4326",
+                        "polygonElseFilter",
+                        true);
+
+        assertEquals(
+                "Buildings layer has two features, both should show up after the SLD with elseFilter is applied",
+                2,
+                mapmlFeaturesElse.getBody().getFeatures().size());
     }
 
     @Test
