@@ -293,6 +293,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
                         MockData.POLYGONS.getLocalPart() + "," + MockData.LINES.getLocalPart(),
                         null,
                         null,
+                        null,
                         "EPSG:3857",
                         null,
                         false);
@@ -316,6 +317,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
         Mapml mapmlOneNotFeatures =
                 getWMSAsMapML(
                         MockData.POLYGONS.getLocalPart() + "," + MockData.LINES.getLocalPart(),
+                        null,
                         null,
                         null,
                         "EPSG:3857",
@@ -354,6 +356,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
                                 + MockData.POLYGONS.getLocalPart()
                                 + ","
                                 + MockData.WORLD.getLocalPart(),
+                        null,
                         null,
                         null,
                         "EPSG:3857",
@@ -396,6 +399,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
         Mapml mapmlSingleExtent =
                 getWMSAsMapML(
                         "layerGroup" + "," + MockData.POLYGONS.getLocalPart(),
+                        null,
                         null,
                         null,
                         "EPSG:3857",
@@ -482,6 +486,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
                         "layerGroup" + "," + MockData.POLYGONS.getLocalPart(),
                         null,
                         null,
+                        null,
                         "EPSG:3857",
                         null,
                         false);
@@ -543,6 +548,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
                         "layerGroup" + "," + MockData.POLYGONS.getLocalPart(),
                         null,
                         null,
+                        null,
                         "EPSG:3857",
                         null,
                         false);
@@ -555,6 +561,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
         Mapml mapmlMultiExtentWithMultiStyles =
                 getWMSAsMapML(
                         MockData.POLYGONS.getLocalPart() + "," + "layerGroup",
+                        null,
                         null,
                         null,
                         "EPSG:3857",
@@ -587,6 +594,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
                         MockData.POLYGONS.getLocalPart(),
                         null,
                         null,
+                        null,
                         "EPSG:4326",
                         "scaleRange",
                         false);
@@ -612,6 +620,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
         Mapml mapmlSingleLayerNoMax =
                 getWMSAsMapML(
                         MockData.POLYGONS.getLocalPart(),
+                        null,
                         null,
                         null,
                         "EPSG:4326",
@@ -642,6 +651,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
         Mapml mapmlSingleLayerExtremes =
                 getWMSAsMapML(
                         MockData.POLYGONS.getLocalPart(),
+                        null,
                         null,
                         null,
                         "EPSG:4326",
@@ -680,6 +690,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
                         MockData.POLYGONS.getLocalPart() + "," + "layerGroup",
                         null,
                         null,
+                        null,
                         "EPSG:4326",
                         "scaleRange,",
                         false);
@@ -709,6 +720,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
         Mapml mapmlSingleExtentWithMultiStyles =
                 getWMSAsMapML(
                         MockData.POLYGONS.getLocalPart() + "," + "layerGroup",
+                        null,
                         null,
                         null,
                         "EPSG:4326",
@@ -757,7 +769,8 @@ public class MapMLWMSTest extends MapMLTestSupport {
 
     @Test
     public void testNonExistentLayer() throws Exception {
-        String response = getWMSAsMapMLString("nonexistent", null, null, "EPSG:3857", null, false);
+        String response =
+                getWMSAsMapMLString("nonexistent", null, null, null, "EPSG:3857", null, false);
 
         assertTrue(
                 response.contains(
@@ -766,7 +779,8 @@ public class MapMLWMSTest extends MapMLTestSupport {
 
     @Test
     public void testNonExistentProjection() throws Exception {
-        String response = getWMSAsMapMLString("Polgons", null, null, "EPSG:9999", null, false);
+        String response =
+                getWMSAsMapMLString("Polgons", null, null, null, "EPSG:9999", null, false);
 
         assertTrue(
                 response.contains(
