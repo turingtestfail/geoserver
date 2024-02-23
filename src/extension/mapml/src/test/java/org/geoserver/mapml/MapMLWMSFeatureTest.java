@@ -75,7 +75,7 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
                 mapmlFeatures.getBody().getFeatures().size());
         assertEquals(
                 "Polygons layer coordinates should match original feature's coordinates",
-                "500225,500025,500225,500075,500275,500050,500275,500025,500225,500025",
+                "-1.035248685501953E7,504109.89366969,-1.035248685487942E7,504160.40501648,-1.035243667965507E7,504135.14918251,-1.035243667974068E7,504109.89351299,-1.035248685501953E7,504109.89366969",
                 ((Polygon)
                                 mapmlFeatures
                                         .getBody()
