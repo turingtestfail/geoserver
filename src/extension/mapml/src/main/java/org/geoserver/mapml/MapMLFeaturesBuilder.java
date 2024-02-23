@@ -7,31 +7,31 @@ package org.geoserver.mapml;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.servlet.http.HttpServletRequest;
 import org.geoserver.catalog.FeatureTypeInfo;
 import org.geoserver.catalog.LayerInfo;
 import org.geoserver.catalog.ResourceInfo;
 import org.geoserver.config.GeoServer;
 import org.geoserver.config.SettingsInfo;
+import org.geoserver.feature.ReprojectingFeatureCollection;
 import org.geoserver.mapml.xml.Mapml;
-import org.geoserver.ows.util.KvpUtils;
-import org.geoserver.ows.util.ResponseUtils;
 import org.geoserver.platform.ServiceException;
 import org.geoserver.wms.GetMapRequest;
 import org.geoserver.wms.MapLayerInfo;
 import org.geoserver.wms.WMSMapContent;
 import org.geotools.api.data.FeatureSource;
 import org.geotools.api.feature.type.FeatureType;
+import org.geotools.api.feature.type.GeometryDescriptor;
+import org.geotools.api.referencing.FactoryException;
 import org.geotools.api.referencing.crs.CoordinateReferenceSystem;
 import org.geotools.data.simple.SimpleFeatureCollection;
 import org.geotools.feature.FeatureCollection;
+import org.geotools.feature.SchemaException;
 import org.geotools.map.Layer;
 
 public class MapMLFeaturesBuilder {
     private List<FeatureSource> featureSources;
     private final GeoServer geoServer;
     private final WMSMapContent mapContent;
-    private final HttpServletRequest httpServletRequest;
     private final GetMapRequest getMapRequest;
 
     /**
@@ -39,14 +39,11 @@ public class MapMLFeaturesBuilder {
      *
      * @param mapContent the WMS map content
      * @param geoServer the GeoServer
-     * @param httpServletRequest the HTTP servlet request
      */
-    public MapMLFeaturesBuilder(
-            WMSMapContent mapContent, GeoServer geoServer, HttpServletRequest httpServletRequest) {
+    public MapMLFeaturesBuilder(WMSMapContent mapContent, GeoServer geoServer) {
         this.geoServer = geoServer;
         this.mapContent = mapContent;
         this.getMapRequest = mapContent.getRequest();
-        this.httpServletRequest = httpServletRequest;
         featureSources =
                 mapContent.layers().stream()
                         .map(Layer::getFeatureSource)
@@ -77,19 +74,36 @@ public class MapMLFeaturesBuilder {
         }
         SimpleFeatureCollection fc = (SimpleFeatureCollection) featureCollection;
 
+        GeometryDescriptor sourceGeometryDescriptor = fc.getSchema().getGeometryDescriptor();
+        if (sourceGeometryDescriptor == null) {
+            throw new ServiceException(
+                    "MapML WMS Feature format does not currently support non-geometry features.");
+        }
+        SimpleFeatureCollection reprojectedFeatureCollection = null;
+        if (!sourceGeometryDescriptor
+                .getCoordinateReferenceSystem()
+                .equals(getMapRequest.getCrs())) {
+            try {
+                reprojectedFeatureCollection =
+                        new ReprojectingFeatureCollection(fc, getMapRequest.getCrs());
+            } catch (SchemaException | FactoryException e) {
+                throw new ServiceException(
+                        "Unable to reproject to the requested coordinate references system", e);
+            }
+        } else {
+            reprojectedFeatureCollection = fc;
+        }
+
         LayerInfo layerInfo = geoServer.getCatalog().getLayerByName(fc.getSchema().getTypeName());
         CoordinateReferenceSystem crs = mapContent.getRequest().getCrs();
         FeatureType featureType = fc.getSchema();
         ResourceInfo meta =
                 geoServer.getCatalog().getResourceByName(featureType.getName(), ResourceInfo.class);
         return MapMLFeatureUtil.featureCollectionToMapML(
-                fc,
+                reprojectedFeatureCollection,
                 layerInfo,
                 crs,
-                MapMLFeatureUtil.alternateProjections(
-                        ResponseUtils.baseURL(httpServletRequest),
-                        "wms",
-                        KvpUtils.normalize(httpServletRequest.getParameterMap())),
+                null, // for WMS GetMap we don't include alternate projections
                 getNumberOfDecimals(meta),
                 getForcedDecimal(meta),
                 getPadWithZeros(meta));

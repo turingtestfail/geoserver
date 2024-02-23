@@ -86,7 +86,9 @@ public class MapMLFeatureUtil {
         Set<Meta> projectionAndExtent = deduceProjectionAndExtent(requestCRS, layerInfo);
         metas.addAll(projectionAndExtent);
         List<Link> links = head.getLinks();
-        links.addAll(alternateProjections);
+        if (alternateProjections != null) {
+            links.addAll(alternateProjections);
+        }
 
         String licenseLink = layerMeta.get("mapml.licenseLink", String.class);
         String licenseTitle = layerMeta.get("mapml.licenseTitle", String.class);
