@@ -28,6 +28,7 @@ import org.geoserver.mapml.xml.MultiPolygon;
 import org.geoserver.wms.GetMapRequest;
 import org.geoserver.wms.MapLayerInfo;
 import org.geoserver.wms.WMSMapContent;
+import org.geoserver.wms.map.StyleQueryUtil;
 import org.geotools.api.data.Query;
 import org.geotools.api.feature.simple.SimpleFeature;
 import org.geotools.api.feature.simple.SimpleFeatureType;
@@ -201,7 +202,7 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
                         cat.getStyleByName("polygonFilter").getStyle());
 
         WMSMapContent mapContent = createMapContent(mapBounds, renderingArea, 0, layer);
-        Query q = MapMLMapOutputFormat.getStyleQuery(layer, mapContent);
+        Query q = StyleQueryUtil.getStyleQuery(layer, mapContent);
         assertTrue(
                 "Query filter should include the SLD filter",
                 q.getFilter().toString().contains("ADDRESS = 123 Main Street"));
@@ -211,7 +212,7 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
                         ds.getFeatureSource("polygons"),
                         cat.getStyleByName("polygonElseFilter").getStyle());
         WMSMapContent mapContentElse = createMapContent(mapBounds, renderingArea, 0, layerElse);
-        Query qElse = MapMLMapOutputFormat.getStyleQuery(layerElse, mapContentElse);
+        Query qElse = StyleQueryUtil.getStyleQuery(layerElse, mapContentElse);
         assertFalse(
                 "Query filter does not include the SLD filter because the else clause is used",
                 qElse.getFilter().toString().contains("ADDRESS = 123 Main Street"));

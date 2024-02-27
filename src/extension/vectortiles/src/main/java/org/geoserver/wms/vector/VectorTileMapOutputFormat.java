@@ -21,6 +21,7 @@ import org.geoserver.wms.MapProducerCapabilities;
 import org.geoserver.wms.WMSMapContent;
 import org.geoserver.wms.WebMap;
 import org.geoserver.wms.map.AbstractMapOutputFormat;
+import org.geoserver.wms.map.StyleQueryUtil;
 import org.geotools.api.data.FeatureSource;
 import org.geotools.api.data.Query;
 import org.geotools.api.feature.Attribute;
@@ -106,12 +107,11 @@ public class VectorTileMapOutputFormat extends AbstractMapOutputFormat {
 
             sourceCrs = geometryDescriptor.getType().getCoordinateReferenceSystem();
             int buffer =
-                    getComputedBuffer(
+                    StyleQueryUtil.getComputedBuffer(
                             mapContent.getBuffer(),
-                            getFeatureStyles(
+                            StyleQueryUtil.getFeatureStyles(
                                     layer,
-                                    paintArea,
-                                    getMapScale(mapContent, renderingArea),
+                                    StyleQueryUtil.getMapScale(mapContent, renderingArea),
                                     featureSource.getSchema()));
             if (this.tileBuilderFactory.shouldOversampleScale()) {
                 // buffer is in pixels (style pixels), need to convert to paint area pixels
@@ -123,7 +123,7 @@ public class VectorTileMapOutputFormat extends AbstractMapOutputFormat {
                                 1); // if 0 (i.e. test case), don't expand
             }
 
-            Query query = getStyleQuery(layer, mapContent);
+            Query query = StyleQueryUtil.getStyleQuery(layer, mapContent);
             Hints hints = query.getHints();
 
             Pipeline pipeline =

@@ -23,6 +23,7 @@ import org.geoserver.wms.WMS;
 import org.geoserver.wms.WMSMapContent;
 import org.geoserver.wms.WebMap;
 import org.geoserver.wms.map.AbstractMapOutputFormat;
+import org.geoserver.wms.map.StyleQueryUtil;
 import org.geotools.api.data.Query;
 
 /** Handles a GetMap request that for a map in MapML format. */
@@ -69,7 +70,7 @@ public class MapMLMapOutputFormat extends AbstractMapOutputFormat implements Get
                 throw new ServiceException(
                         "MapML WMS Feature format does not currently support non-vector layers.");
             }
-            List<Query> queries = getStyleQuery(mapContent.layers(), mapContent);
+            List<Query> queries = StyleQueryUtil.getStyleQuery(mapContent.layers(), mapContent);
             MapMLFeaturesBuilder mapMLFeaturesBuilder =
                     new MapMLFeaturesBuilder(mapContent, geoServer, httpServletRequest, queries);
             return new MapMLMap(mapContent, mapMLFeaturesBuilder.getMapMLDocument());

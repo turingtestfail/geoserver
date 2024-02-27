@@ -37,7 +37,7 @@ import org.geotools.renderer.crs.ProjectionHandler;
  *
  * @author dblasby
  */
-final class LiteFeatureTypeStyle {
+public final class LiteFeatureTypeStyle {
 
     public Layer layer;
 

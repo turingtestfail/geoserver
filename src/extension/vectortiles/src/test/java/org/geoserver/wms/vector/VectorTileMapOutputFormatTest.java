@@ -35,6 +35,7 @@ import org.geoserver.wms.GetMapRequest;
 import org.geoserver.wms.MapLayerInfo;
 import org.geoserver.wms.WMSMapContent;
 import org.geoserver.wms.WebMap;
+import org.geoserver.wms.map.StyleQueryUtil;
 import org.geoserver.wms.mapbox.MapBoxTileBuilderFactory;
 import org.geotools.api.data.Query;
 import org.geotools.api.data.SimpleFeatureSource;
@@ -194,7 +195,7 @@ public class VectorTileMapOutputFormatTest {
         MapBoxTileBuilderFactory mbbf = new MapBoxTileBuilderFactory();
         VectorTileMapOutputFormat vtof = new VectorTileMapOutputFormat(mbbf);
 
-        Query q = VectorTileMapOutputFormat.getStyleQuery(scaleDependentPolygonLayer, mapContent);
+        Query q = StyleQueryUtil.getStyleQuery(scaleDependentPolygonLayer, mapContent);
         assertNotSame(q.getFilter(), Filter.EXCLUDE);
 
         // ------------------- abnormal case, there are no rules in the sld that will draw
@@ -205,7 +206,7 @@ public class VectorTileMapOutputFormatTest {
 
         mapContent = createMapContent(mapBounds, renderingArea, 0, scaleDependentPolygonLayer);
 
-        q = vtof.getStyleQuery(scaleDependentPolygonLayer, mapContent);
+        q = StyleQueryUtil.getStyleQuery(scaleDependentPolygonLayer, mapContent);
         assertSame(q.getFilter(), Filter.EXCLUDE);
     }
 
