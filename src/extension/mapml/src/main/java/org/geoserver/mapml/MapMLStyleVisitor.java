@@ -40,6 +40,7 @@ public class MapMLStyleVisitor extends AbstractStyleVisitor {
     public static final String RADIUS = "r";
     public static final String RULE_SYMBOLIZER_DELIMITER = ":";
     public static final String STROKE_DASHOFFSET = "stroke-dashoffset";
+    public static final String FILL_OPACITY = "fill-opacity";
 
     Map<String, MapMLStyle> styles = new HashMap<>();
     AtomicInteger ruleCounter = new AtomicInteger(0);
@@ -90,6 +91,10 @@ public class MapMLStyleVisitor extends AbstractStyleVisitor {
             String value = fill.getColor().evaluate(null, String.class);
             style.setProperty(FILL, value);
         }
+        if (isNotNullAndIsStatic(fill.getOpacity())) {
+            Double value = fill.getOpacity().evaluate(null, Double.class);
+            style.setProperty(FILL_OPACITY, String.valueOf(value));
+        }
     }
 
     @Override
@@ -134,9 +139,6 @@ public class MapMLStyleVisitor extends AbstractStyleVisitor {
     @Override
     public void visit(PolygonSymbolizer poly) {
         createStyle(poly);
-        if (poly.getDescription() != null) {
-            poly.getDescription().accept(this);
-        }
         if (poly.getDisplacement() != null) {
             poly.getDisplacement().accept(this);
         }
