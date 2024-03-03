@@ -13,6 +13,7 @@
         <Rule>
           <PointSymbolizer>
             <Graphic>
+              <Opacity>0.5</Opacity>
               <Mark>
                 <WellKnownName>circle</WellKnownName>
                 <Fill>
