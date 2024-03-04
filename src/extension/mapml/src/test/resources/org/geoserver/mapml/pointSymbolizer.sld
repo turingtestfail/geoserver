@@ -21,6 +21,18 @@
                 </Fill>
               </Mark>
               <Size>6</Size>
+              <Rotation>45</Rotation>
+
+              <AnchorPoint>
+                <AnchorPointX>0.5</AnchorPointX>
+                <AnchorPointY>0.0</AnchorPointY>
+              </AnchorPoint>
+              <Displacement>
+                <DisplacementX>0</DisplacementX>
+                <DisplacementY>5</DisplacementY>
+              </Displacement>
+              <Gap>10</Gap>
+
             </Graphic>
           </PointSymbolizer>
         </Rule>

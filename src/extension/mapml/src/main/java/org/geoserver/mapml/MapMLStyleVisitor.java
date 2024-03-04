@@ -39,6 +39,7 @@ public class MapMLStyleVisitor extends AbstractStyleVisitor {
     /** Default radius for point symbolizers, see @link{Graphic#getSize()} */
     private static final Double DEFAULT_RADIUS = 8.0;
 
+    public static final String STROKE_OPACITY = "stroke-opacity";
     public static final String STROKE_DASHARRAY = "stroke-dasharray";
     public static final String STROKE_LINECAP = "stroke-linecap";
     public static final String STROKE_WIDTH = "stroke-width";
@@ -58,6 +59,7 @@ public class MapMLStyleVisitor extends AbstractStyleVisitor {
     @Override
     public void visit(FeatureTypeStyle fts) {
         for (Rule r : fts.rules()) {
+            symbolizerCounter.set(0);
             ruleCounter.incrementAndGet();
             r.accept(this);
         }
@@ -65,6 +67,12 @@ public class MapMLStyleVisitor extends AbstractStyleVisitor {
 
     @Override
     public void visit(Fill fill) {
+        if (fill.getGraphicFill() != null) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Graphic Fills");
+            return;
+        }
         if (isNotNullAndIsStatic(fill.getColor())) {
             String value = fill.getColor().evaluate(null, String.class);
             style.setProperty(FILL, value);
@@ -73,22 +81,29 @@ public class MapMLStyleVisitor extends AbstractStyleVisitor {
             Double value = fill.getOpacity().evaluate(null, Double.class);
             style.setProperty(FILL_OPACITY, String.valueOf(value));
         }
-        if (fill.getGraphicFill() != null) {
-            LOGGER.log(
-                    Level.WARNING,
-                    "MapML feature styling does not currently support Graphic Fills");
-        }
     }
 
     @Override
     public void visit(Stroke stroke) {
+        if (stroke.getGraphicStroke() != null) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Graphic Strokes");
+            return;
+        }
+        if (stroke.getGraphicFill() != null) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Stroke Graphic Fills");
+            return;
+        }
         if (isNotNullAndIsStatic(stroke.getColor())) {
             String value = stroke.getColor().evaluate(null, String.class);
             style.setProperty(STROKE, value);
         }
         if (isNotNullAndIsStatic(stroke.getOpacity())) {
             Double value = stroke.getOpacity().evaluate(null, Double.class);
-            style.setProperty(OPACITY, String.valueOf(value));
+            style.setProperty(STROKE_OPACITY, String.valueOf(value));
         }
         if (isNotNullAndIsStatic(stroke.getWidth())) {
             Double value = stroke.getWidth().evaluate(null, Double.class);
@@ -101,7 +116,7 @@ public class MapMLStyleVisitor extends AbstractStyleVisitor {
         if (stroke.getDashArray() != null && stroke.getDashArray().length > 0) {
             String value =
                     IntStream.range(0, stroke.getDashArray().length)
-                            .mapToObj(String::valueOf)
+                            .mapToObj(i -> String.valueOf(stroke.getDashArray()[i]))
                             .collect(Collectors.joining(" "));
             style.setProperty(STROKE_DASHARRAY, value);
         }
@@ -109,16 +124,7 @@ public class MapMLStyleVisitor extends AbstractStyleVisitor {
             Integer value = stroke.getDashOffset().evaluate(null, Integer.class);
             style.setProperty(STROKE_DASHOFFSET, String.valueOf(value));
         }
-        if (stroke.getGraphicStroke() != null) {
-            LOGGER.log(
-                    Level.WARNING,
-                    "MapML feature styling does not currently support Graphic Strokes");
-        }
-        if (stroke.getGraphicFill() != null) {
-            LOGGER.log(
-                    Level.WARNING,
-                    "MapML feature styling does not currently support Stroke Graphic Fills");
-        }
+
         if (stroke.getLineJoin() != null) {
             LOGGER.log(Level.WARNING, "MapML feature styling does not currently support Line Join");
         }
@@ -243,9 +249,7 @@ public class MapMLStyleVisitor extends AbstractStyleVisitor {
                     Level.WARNING,
                     "MapML feature styling does not currently support Polygon Perpendicular Offset");
         }
-        if (poly.getDisplacement() != null) {
-            poly.getDisplacement().accept(this);
-        }
+
         if (poly.getFill() != null) {
             poly.getFill().accept(this);
         }
