@@ -7,24 +7,31 @@ import org.geotools.api.style.Fill;
 import org.geotools.api.style.Graphic;
 import org.geotools.api.style.GraphicalSymbol;
 import org.geotools.api.style.LineSymbolizer;
+import org.geotools.api.style.Mark;
 import org.geotools.api.style.PointSymbolizer;
 import org.geotools.api.style.PolygonSymbolizer;
+import org.geotools.api.style.RasterSymbolizer;
 import org.geotools.api.style.Rule;
 import org.geotools.api.style.Stroke;
 import org.geotools.api.style.Symbol;
 import org.geotools.api.style.Symbolizer;
+import org.geotools.api.style.TextSymbolizer;
 import org.geotools.filter.visitor.IsStaticExpressionVisitor;
 import org.geotools.styling.AbstractStyleVisitor;
+import org.geotools.util.logging.Logging;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
 public class MapMLStyleVisitor extends AbstractStyleVisitor {
+    static final Logger LOGGER = Logging.getLogger(MapMLStyleVisitor.class);
     public static final String RULE_ID_PREFIX = "rule-";
     public static final String SYMBOLIZER_ID_PREFIX = "symbolizer-";
     public static final String OPACITY = "opacity";
@@ -57,35 +64,6 @@ public class MapMLStyleVisitor extends AbstractStyleVisitor {
     }
 
     @Override
-    public void visit(PointSymbolizer ps) {
-        createStyle(ps);
-        if (ps.getGraphic() != null) {
-            ps.getGraphic().accept(this);
-        }
-    }
-
-    public void visit(Graphic gr) {
-        if (isNotNullAndIsStatic(gr.getOpacity())) {
-            double value = gr.getOpacity().evaluate(null, Double.class);
-            style.setProperty(OPACITY, String.valueOf(value));
-        }
-        Double radius = DEFAULT_RADIUS;
-        if (isNotNullAndIsStatic(gr.getSize())) {
-            double value = gr.getSize().evaluate(null, Double.class);
-            radius = value * DEFAULT_RADIUS;
-        }
-        style.setProperty(RADIUS, String.valueOf(radius));
-
-        for (GraphicalSymbol gs : gr.graphicalSymbols()) {
-            if (!(gs instanceof Symbol)) {
-                throw new RuntimeException("Don't know how to visit " + gs);
-            }
-
-            gs.accept(this);
-        }
-    }
-
-    @Override
     public void visit(Fill fill) {
         if (isNotNullAndIsStatic(fill.getColor())) {
             String value = fill.getColor().evaluate(null, String.class);
@@ -94,6 +72,11 @@ public class MapMLStyleVisitor extends AbstractStyleVisitor {
         if (isNotNullAndIsStatic(fill.getOpacity())) {
             Double value = fill.getOpacity().evaluate(null, Double.class);
             style.setProperty(FILL_OPACITY, String.valueOf(value));
+        }
+        if (fill.getGraphicFill() != null) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Graphic Fills");
         }
     }
 
@@ -126,11 +109,122 @@ public class MapMLStyleVisitor extends AbstractStyleVisitor {
             Integer value = stroke.getDashOffset().evaluate(null, Integer.class);
             style.setProperty(STROKE_DASHOFFSET, String.valueOf(value));
         }
+        if (stroke.getGraphicStroke() != null) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Graphic Strokes");
+        }
+        if (stroke.getGraphicFill() != null) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Stroke Graphic Fills");
+        }
+        if (stroke.getLineJoin() != null) {
+            LOGGER.log(Level.WARNING, "MapML feature styling does not currently support Line Join");
+        }
+    }
+
+    @Override
+    public void visit(Symbolizer sym) {
+        if (sym instanceof RasterSymbolizer) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Raster Symbolizers");
+        } else if (sym instanceof LineSymbolizer) {
+            visit((LineSymbolizer) sym);
+        } else if (sym instanceof PolygonSymbolizer) {
+            visit((PolygonSymbolizer) sym);
+        } else if (sym instanceof PointSymbolizer) {
+            visit((PointSymbolizer) sym);
+        } else if (sym instanceof TextSymbolizer) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Text Symbolizers");
+        } else {
+            throw new RuntimeException("visit(Symbolizer) unsupported");
+        }
+    }
+
+    @Override
+    public void visit(PointSymbolizer ps) {
+        createStyle(ps);
+        if (ps.getGraphic() != null) {
+            ps.getGraphic().accept(this);
+        }
+    }
+
+    public void visit(Graphic gr) {
+        if (isNotNullAndIsStatic(gr.getOpacity())) {
+            double value = gr.getOpacity().evaluate(null, Double.class);
+            style.setProperty(OPACITY, String.valueOf(value));
+        }
+        Double radius = DEFAULT_RADIUS;
+        if (isNotNullAndIsStatic(gr.getSize())) {
+            double value = gr.getSize().evaluate(null, Double.class);
+            radius = value * DEFAULT_RADIUS;
+        }
+        style.setProperty(RADIUS, String.valueOf(radius));
+        if (gr.getRotation() != null) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Graphic Rotation");
+        }
+        if (gr.getDisplacement() != null) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Graphic Displacement");
+        }
+        if (gr.getAnchorPoint() != null) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Graphic Anchor Point");
+        }
+        if (gr.getGap() != null) {
+            LOGGER.log(
+                    Level.WARNING, "MapML feature styling does not currently support Graphic Gap");
+        }
+        if (gr.getInitialGap() != null) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Graphic Initial Gap");
+        }
+
+        for (GraphicalSymbol gs : gr.graphicalSymbols()) {
+            if (!(gs instanceof Symbol)) {
+                throw new RuntimeException("Don't know how to visit " + gs);
+            }
+
+            gs.accept(this);
+        }
+    }
+
+    @Override
+    public void visit(Mark mark) {
+        if (isNotNullAndIsStatic(mark.getWellKnownName())) {
+            String value = mark.getWellKnownName().evaluate(null, String.class);
+            style.setProperty("well-known-name", value);
+        }
+        if (mark.getExternalMark() != null) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support External Marks");
+        }
+        if (mark.getFill() != null) {
+            mark.getFill().accept(this);
+        }
+        if (mark.getStroke() != null) {
+            mark.getStroke().accept(this);
+        }
     }
 
     @Override
     public void visit(LineSymbolizer line) {
         createStyle(line);
+        if (line.getPerpendicularOffset() != null) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Line Perpendicular Offset");
+        }
         if (line.getStroke() != null) {
             line.getStroke().accept(this);
         }
@@ -139,6 +233,16 @@ public class MapMLStyleVisitor extends AbstractStyleVisitor {
     @Override
     public void visit(PolygonSymbolizer poly) {
         createStyle(poly);
+        if (poly.getDisplacement() != null) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Polygon Displacement");
+        }
+        if (poly.getPerpendicularOffset() != null) {
+            LOGGER.log(
+                    Level.WARNING,
+                    "MapML feature styling does not currently support Polygon Perpendicular Offset");
+        }
         if (poly.getDisplacement() != null) {
             poly.getDisplacement().accept(this);
         }
