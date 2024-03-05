@@ -355,7 +355,6 @@ public class MapMLDocumentBuilder {
         MapMLLayerMetadata mapMLLayerMetadata = new MapMLLayerMetadata();
         mapMLLayerMetadata.setLayerMeta(new MetadataMap());
         mapMLLayerMetadata.setUseTiles(false);
-        useFeaturesAllLayers = allLayersUsingFeatures(layers);
         mapMLLayerMetadata.setLayerName(layersCommaDelimited);
         mapMLLayerMetadata.setStyleName(stylesCommaDelimited);
         mapMLLayerMetadata.setTimeEnabled(false);

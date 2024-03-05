@@ -29,6 +29,7 @@ import org.geoserver.wms.GetMapRequest;
 import org.geoserver.wms.MapLayerInfo;
 import org.geoserver.wms.WMSMapContent;
 import org.geoserver.wms.map.StyleQueryUtil;
+import org.geotools.api.data.DataStore;
 import org.geotools.api.data.Query;
 import org.geotools.api.feature.simple.SimpleFeature;
 import org.geotools.api.feature.simple.SimpleFeatureType;
@@ -36,7 +37,7 @@ import org.geotools.api.feature.type.GeometryDescriptor;
 import org.geotools.api.referencing.FactoryException;
 import org.geotools.api.style.Style;
 import org.geotools.data.DataUtilities;
-import org.geotools.data.memory.MemoryDataStore;
+import org.geotools.data.store.EmptyFeatureCollection;
 import org.geotools.feature.simple.SimpleFeatureBuilder;
 import org.geotools.geometry.jts.ReferencedEnvelope;
 import org.geotools.geometry.jts.WKTReader2;
@@ -167,30 +168,9 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
     @Test
     public void testMapMLGetStyleQuery() throws Exception {
         Catalog cat = getCatalog();
-        MemoryDataStore ds = new MemoryDataStore();
         final String polyTypeSpec = "ADDRESS:String,ip:Integer,geom:Polygon:srid=4326";
         SimpleFeatureType polyType = DataUtilities.createType("polygons", polyTypeSpec);
-        ds.addFeature(
-                feature(
-                        polyType,
-                        "polygon1",
-                        "123 Main Street",
-                        1000,
-                        "POLYGON ((1 1, 2 2, 3 3, 4 4, 1 1))"));
-        ds.addFeature(
-                feature(
-                        polyType,
-                        "polygon2",
-                        "95 Penny Lane",
-                        2000,
-                        "POLYGON ((6 6, 7 7, 8 8, 9 9, 6 6))"));
-        ds.addFeature(
-                feature(
-                        polyType,
-                        "polygon3",
-                        "154 Sesame Street",
-                        3000,
-                        "POLYGON ((11 11, 12 12, 13 13, 14 14, 11 11))"));
+        DataStore ds = DataUtilities.dataStore(new EmptyFeatureCollection(polyType));
         ReferencedEnvelope mapBounds =
                 new ReferencedEnvelope(
                         0, 0.005, 0, 0.005, CRS.decode("urn:x-ogc:def:crs:EPSG:4326"));

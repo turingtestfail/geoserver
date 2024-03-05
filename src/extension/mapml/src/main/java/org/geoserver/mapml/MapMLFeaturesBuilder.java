@@ -7,7 +7,6 @@ package org.geoserver.mapml;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.servlet.http.HttpServletRequest;
 import org.geoserver.catalog.FeatureTypeInfo;
 import org.geoserver.catalog.LayerInfo;
 import org.geoserver.catalog.ResourceInfo;
@@ -35,7 +34,7 @@ public class MapMLFeaturesBuilder {
     private final GeoServer geoServer;
     private final WMSMapContent mapContent;
     private final GetMapRequest getMapRequest;
-    private final List<Query> queries;
+    private final Query query;
 
     /**
      * Constructor
@@ -43,11 +42,7 @@ public class MapMLFeaturesBuilder {
      * @param mapContent the WMS map content
      * @param geoServer the GeoServer
      */
-    public MapMLFeaturesBuilder(
-            WMSMapContent mapContent,
-            GeoServer geoServer,
-            HttpServletRequest httpServletRequest,
-            List<Query> queries) {
+    public MapMLFeaturesBuilder(WMSMapContent mapContent, GeoServer geoServer, Query query) {
         this.geoServer = geoServer;
         this.mapContent = mapContent;
         this.getMapRequest = mapContent.getRequest();
@@ -55,7 +50,7 @@ public class MapMLFeaturesBuilder {
                 mapContent.layers().stream()
                         .map(Layer::getFeatureSource)
                         .collect(Collectors.toList());
-        this.queries = queries;
+        this.query = query;
     }
 
     /**
@@ -76,8 +71,7 @@ public class MapMLFeaturesBuilder {
                     "MapML WMS Feature format does not currently support non-vector layers.");
         }
         FeatureCollection featureCollection = null;
-        if (!queries.isEmpty()) {
-            Query query = queries.get(0);
+        if (query != null) {
             featureCollection = featureSources.get(0).getFeatures(query);
         } else {
             featureCollection = featureSources.get(0).getFeatures();

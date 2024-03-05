@@ -15,7 +15,11 @@ import org.geotools.map.Layer;
 import org.geotools.renderer.crs.ProjectionHandler;
 
 /**
- * This is a simple class that contains the information needed to render a layer.
+ * Note that this is a copy of the original class from GeoTools
+ * org.geotools.renderer.lite.LiteFeatureTypeStyle to support building queries for rendering in
+ * formats not using StreamingRenderer
+ *
+ * <p>This is a simple class that contains the information needed to render a layer.
  *
  * <p>Basically, for a SLD, you create one of these for each of the FeatureTypeStyles inside it.
  * LiteRenderer uses this to do the actual renderering.

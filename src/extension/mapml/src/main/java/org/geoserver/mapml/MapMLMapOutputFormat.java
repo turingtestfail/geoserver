@@ -69,8 +69,16 @@ public class MapMLMapOutputFormat implements GetMapOutputFormat {
                         "MapML WMS Feature format does not currently support non-vector layers.");
             }
             List<Query> queries = StyleQueryUtil.getStyleQuery(mapContent.layers(), mapContent);
+            Query query = null;
+            if (queries != null && !queries.isEmpty()) {
+                if (queries.size() > 1) {
+                    throw new ServiceException(
+                            "MapML WMS Feature format does not currently support Multiple Feature Type output.");
+                }
+                query = queries.get(0);
+            }
             MapMLFeaturesBuilder mapMLFeaturesBuilder =
-                    new MapMLFeaturesBuilder(mapContent, geoServer, httpServletRequest, queries);
+                    new MapMLFeaturesBuilder(mapContent, geoServer, query);
             return new MapMLMap(mapContent, mapMLFeaturesBuilder.getMapMLDocument());
         } else {
             MapMLDocumentBuilder mapMLDocumentBuilder =

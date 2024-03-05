@@ -46,7 +46,10 @@ import org.geotools.util.logging.Logging;
 
 /**
  * Utility class for creating a query selecting those features relevant to the style and extent of
- * the given map, for the given layer.
+ * the given map, for the given layer. Note that this functionality is an adaption of methods
+ * originally in org.geotools.renderer.lite.StreamingRenderer, currently used by
+ * VectorTileMapOutputFormat and MapMLMapOutputFormat. Unlike the original, it does not build a list
+ * of style attributes due to a need to dump all properties to the output format.
  */
 public final class StyleQueryUtil {
     public static final Logger LOGGER = Logging.getLogger(StyleQueryUtil.class);
