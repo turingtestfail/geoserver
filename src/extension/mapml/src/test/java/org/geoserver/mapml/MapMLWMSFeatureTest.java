@@ -109,7 +109,7 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
                 mapmlFeatures.getBody().getFeatures().size());
         assertEquals(
                 "Polygons layer coordinates should match original feature's coordinates",
-                "-1,0,0,1,1,0,0,-1,-1,0",
+                "0,-1,1,0,0,1,-1,0,0,-1",
                 ((MultiPolygon)
                                 mapmlFeatures
                                         .getBody()
@@ -118,7 +118,11 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
                                         .getGeometry()
                                         .getGeometryContent()
                                         .getValue())
-                        .getPolygon().get(0).getThreeOrMoreCoordinatePairs().get(0).getValue()
+                                .getPolygon()
+                                .get(0)
+                                .getThreeOrMoreCoordinatePairs()
+                                .get(0)
+                                .getValue()
                                 .stream()
                                 .collect(Collectors.joining(",")));
     }
