@@ -118,11 +118,7 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
                                         .getGeometry()
                                         .getGeometryContent()
                                         .getValue())
-                                .getPolygon()
-                                .get(0)
-                                .getThreeOrMoreCoordinatePairs()
-                                .get(0)
-                                .getValue()
+                        .getPolygon().get(0).getThreeOrMoreCoordinatePairs().get(0).getValue()
                                 .stream()
                                 .collect(Collectors.joining(",")));
     }

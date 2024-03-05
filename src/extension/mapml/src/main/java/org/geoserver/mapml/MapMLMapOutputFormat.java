@@ -22,12 +22,11 @@ import org.geoserver.wms.MapProducerCapabilities;
 import org.geoserver.wms.WMS;
 import org.geoserver.wms.WMSMapContent;
 import org.geoserver.wms.WebMap;
-import org.geoserver.wms.map.AbstractMapOutputFormat;
 import org.geoserver.wms.map.StyleQueryUtil;
 import org.geotools.api.data.Query;
 
 /** Handles a GetMap request that for a map in MapML format. */
-public class MapMLMapOutputFormat extends AbstractMapOutputFormat implements GetMapOutputFormat {
+public class MapMLMapOutputFormat implements GetMapOutputFormat {
     private WMS wms;
     private GeoServer geoServer;
     private final Set<String> OUTPUT_FORMATS =
@@ -41,7 +40,6 @@ public class MapMLMapOutputFormat extends AbstractMapOutputFormat implements Get
      * @param wms the WMS
      */
     public MapMLMapOutputFormat(WMS wms, GeoServer geoServer) {
-        super(MapMLConstants.MAPML_MIME_TYPE, MapMLConstants.MAPML_MIME_TYPE);
         this.wms = wms;
         this.geoServer = geoServer;
     }
