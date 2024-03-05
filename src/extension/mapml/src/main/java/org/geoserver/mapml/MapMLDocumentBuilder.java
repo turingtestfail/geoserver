@@ -523,7 +523,6 @@ public class MapMLDocumentBuilder {
         boolean isTransparent = true;
         String styleName = null;
         boolean tileLayerExists = false;
-        boolean isVector = true;
         if (isLayerGroup) {
             layerGroupInfo = (LayerGroupInfo) layer.getPublishedInfo();
             if (layerGroupInfo == null) {
@@ -544,7 +543,6 @@ public class MapMLDocumentBuilder {
         } else {
             layerInfo = (LayerInfo) layer.getPublishedInfo();
             resourceInfo = layerInfo.getResource();
-            isVector = (PublishedType.VECTOR == layerInfo.getType());
             bbox = layerInfo.getResource().getLatLonBoundingBox();
             layerMeta = resourceInfo.getMetadata();
             workspace =
