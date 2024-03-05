@@ -123,15 +123,15 @@ public class MapMLWMSTest extends MapMLTestSupport {
         geoServer.save(wms);
         Catalog cat = getCatalog();
         LayerInfo li = cat.getLayerByName(MockData.POLYGONS.getLocalPart());
-        li.getMetadata().put(MAPML_USE_FEATURES, false);
+        li.getResource().getMetadata().put(MAPML_USE_FEATURES, false);
         cat.save(li);
 
         LayerInfo li2 = cat.getLayerByName(MockData.LINES.getLocalPart());
-        li2.getMetadata().put(MAPML_USE_FEATURES, false);
+        li.getResource().getMetadata().put(MAPML_USE_FEATURES, false);
         cat.save(li2);
 
         LayerInfo li3 = cat.getLayerByName(MockData.WORLD.getLocalPart());
-        li3.getMetadata().put(MAPML_USE_FEATURES, false);
+        li.getResource().getMetadata().put(MAPML_USE_FEATURES, false);
         cat.save(li3);
     }
 
@@ -274,18 +274,18 @@ public class MapMLWMSTest extends MapMLTestSupport {
 
         Catalog cat = getCatalog();
         LayerInfo li = cat.getLayerByName(MockData.POLYGONS.getLocalPart());
-        li.getMetadata().put(MAPML_USE_FEATURES, true);
-        li.getMetadata().put(MAPML_USE_TILES, false);
+        li.getResource().getMetadata().put(MAPML_USE_FEATURES, true);
+        li.getResource().getMetadata().put(MAPML_USE_TILES, false);
         cat.save(li);
 
         LayerInfo li2 = cat.getLayerByName(MockData.LINES.getLocalPart());
-        li2.getMetadata().put(MAPML_USE_FEATURES, true);
-        li2.getMetadata().put(MAPML_USE_TILES, false);
+        li2.getResource().getMetadata().put(MAPML_USE_FEATURES, true);
+        li2.getResource().getMetadata().put(MAPML_USE_TILES, false);
         cat.save(li2);
 
         LayerInfo li3 = cat.getLayerByName(MockData.WORLD.getLocalPart());
-        li3.getMetadata().put(MAPML_USE_FEATURES, true);
-        li3.getMetadata().put(MAPML_USE_TILES, false);
+        li3.getResource().getMetadata().put(MAPML_USE_FEATURES, true);
+        li3.getResource().getMetadata().put(MAPML_USE_TILES, false);
         cat.save(li3);
 
         Mapml mapmlExtent =
@@ -311,7 +311,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
                 imageLinksForSingle.get(0).getTref().contains("format=text/mapml"));
 
         // now we change one of the layers to not return features
-        li.getMetadata().put(MAPML_USE_FEATURES, false);
+        li.getResource().getMetadata().put(MAPML_USE_FEATURES, false);
         cat.save(li);
 
         Mapml mapmlOneNotFeatures =
@@ -346,7 +346,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
                 imageLinksForSingleOneNotFeatures.size());
 
         // now we add a raster layer
-        li.getMetadata().put(MAPML_USE_FEATURES, true);
+        li.getResource().getMetadata().put(MAPML_USE_FEATURES, true);
         cat.save(li);
 
         Mapml mapmlOneRaster =
@@ -389,7 +389,7 @@ public class MapMLWMSTest extends MapMLTestSupport {
 
         LayerInfo li = cat.getLayerByName(MockData.POLYGONS.getLocalPart());
         ResourceInfo layerMeta = li.getResource();
-        layerMeta.getMetadata().put("mapml.useTiles", true);
+        li.getResource().getMetadata().put("mapml.useTiles", true);
         cat.save(layerMeta);
 
         LayerGroupInfo lgi = cat.getLayerGroupByName("layerGroup");

@@ -377,10 +377,14 @@ public class MapMLDocumentBuilder {
      */
     private boolean allLayersUsingFeatures(List<RawLayer> layers) {
         for (RawLayer layer : layers) {
-            Boolean useFeatures =
-                    layer.getPublishedInfo().getMetadata().get(MAPML_USE_FEATURES, Boolean.class);
-            Boolean isVector = (PublishedType.VECTOR == layer.getPublishedInfo().getType());
-            if (useFeatures == null || isVector == null || !useFeatures || !isVector) {
+            boolean useFeatures =
+                    Optional.ofNullable(layer.getPublishedInfo())
+                            .filter(l -> l instanceof LayerInfo)
+                            .map(l -> ((LayerInfo) l).getResource())
+                            .map(r -> r.getMetadata().get(MAPML_USE_FEATURES, Boolean.class))
+                            .orElse(false);
+            boolean isVector = (PublishedType.VECTOR == layer.getPublishedInfo().getType());
+            if (!useFeatures || !isVector) {
                 return false;
             }
         }

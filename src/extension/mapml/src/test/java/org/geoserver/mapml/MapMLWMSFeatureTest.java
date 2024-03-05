@@ -73,7 +73,7 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
     public void tearDown() {
         Catalog cat = getCatalog();
         LayerInfo li = cat.getLayerByName(MockData.POLYGONS.getLocalPart());
-        li.getMetadata().put(MAPML_USE_FEATURES, false);
+        li.getResource().getMetadata().put(MAPML_USE_FEATURES, false);
         cat.save(li);
 
         LayerGroupInfo lgi = cat.getLayerGroupByName("layerGroup");
@@ -81,7 +81,7 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
         cat.save(lgi);
 
         LayerInfo liRaster = cat.getLayerByName(MockData.WORLD.getLocalPart());
-        liRaster.getMetadata().put(MAPML_USE_FEATURES, false);
+        liRaster.getResource().getMetadata().put(MAPML_USE_FEATURES, false);
         cat.save(liRaster);
     }
 
@@ -90,8 +90,8 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
 
         Catalog cat = getCatalog();
         LayerInfo li = cat.getLayerByName(MockData.BASIC_POLYGONS.getLocalPart());
-        li.getMetadata().put(MAPML_USE_FEATURES, true);
-        li.getMetadata().put(MAPML_USE_TILES, false);
+        li.getResource().getMetadata().put(MAPML_USE_FEATURES, true);
+        li.getResource().getMetadata().put(MAPML_USE_TILES, false);
         cat.save(li);
 
         Mapml mapmlFeatures =
@@ -128,8 +128,8 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
     public void testMapMLUseFeaturesWithSLDFilter() throws Exception {
         Catalog cat = getCatalog();
         LayerInfo li = cat.getLayerByName(MockData.BUILDINGS.getLocalPart());
-        li.getMetadata().put(MAPML_USE_FEATURES, true);
-        li.getMetadata().put(MAPML_USE_TILES, false);
+        li.getResource().getMetadata().put(MAPML_USE_FEATURES, true);
+        li.getResource().getMetadata().put(MAPML_USE_TILES, false);
         li.getStyles().add(cat.getStyleByName("polygonFilter"));
         li.getStyles().add(cat.getStyleByName("polygonElseFilter"));
         li.setDefaultStyle(cat.getStyleByName("polygonFilter"));
@@ -202,8 +202,8 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
     public void testExceptionBecauseMoreThanOneFeatureType() throws Exception {
         Catalog cat = getCatalog();
         LayerInfo li = cat.getLayerByName(MockData.BASIC_POLYGONS.getLocalPart());
-        li.getMetadata().put(MAPML_USE_FEATURES, true);
-        li.getMetadata().put(MAPML_USE_TILES, false);
+        li.getResource().getMetadata().put(MAPML_USE_FEATURES, true);
+        li.getResource().getMetadata().put(MAPML_USE_TILES, false);
         cat.save(li);
         LayerGroupInfo lgi = cat.getLayerGroupByName("layerGroup");
         lgi.getMetadata().put(MAPML_USE_FEATURES, true);
@@ -229,8 +229,8 @@ public class MapMLWMSFeatureTest extends MapMLTestSupport {
     public void testExceptionBecauseBecauseRaster() throws Exception {
         Catalog cat = getCatalog();
         LayerInfo liRaster = cat.getLayerByName(MockData.WORLD.getLocalPart());
-        liRaster.getMetadata().put(MAPML_USE_FEATURES, true);
-        liRaster.getMetadata().put(MAPML_USE_TILES, false);
+        liRaster.getResource().getMetadata().put(MAPML_USE_FEATURES, true);
+        liRaster.getResource().getMetadata().put(MAPML_USE_TILES, false);
         cat.save(liRaster);
         String response =
                 getWMSAsMapMLString(
