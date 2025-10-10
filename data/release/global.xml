@@ -21,6 +21,18 @@
     <metadata>
       <map>
         <entry>
+          <string>llmSettings</string>
+          <llmSettings>
+            <apiKey>crypt1:XTZ+jacmHgSpGWmg8dtmPfsUmRIM+SRbXoRKvHhkaiWzi5tUSSFn1HlU5lmetxro9skbI4dE7HsfcCm8/FlMY2P1oGKQLqDw1OIzZZwzoxma9C3gbp+sZVraHvsTFdrE/8AH74IjI2uxnxr0Qx8ZuKVy0BZxcLermP9VO9JhE6ZPqBXgxq91VPdj+ZcePHamZGZCfxNZqkOWEDg6DORk8KWutslVRFOoIubapFFU+vc=</apiKey>
+            <expireAfterAccessMinutes>20</expireAfterAccessMinutes>
+            <cacheSize>20</cacheSize>
+            <sampleData>3</sampleData>
+            <layersPrompt>You are a helpful assistant. Use the provided GeoServer layers and return the layer that the input most closely matches: %(allLayers)</layersPrompt>
+            <ecqlPrompt>You are a helpful assistant. The GeoServer layer is %(layerName) and the layer fields are: %(fields) and here is some sample data from that layer: %(sampleData). Use this information to generate GeoServer ecql from the provided question:</ecqlPrompt>
+            <chatModel>gpt-4.1</chatModel>
+          </llmSettings>
+        </entry>
+        <entry>
           <string>quietOnNotFound</string>
           <boolean>false</boolean>
         </entry>
@@ -29,6 +41,7 @@
     <localWorkspaceIncludesPrefix>false</localWorkspaceIncludesPrefix>
     <showCreatedTimeColumnsInAdminList>false</showCreatedTimeColumnsInAdminList>
     <showModifiedTimeColumnsInAdminList>false</showModifiedTimeColumnsInAdminList>
+    <showModifiedUserAdminList>false</showModifiedUserAdminList>
     <useHeadersProxyURL>false</useHeadersProxyURL>
   </settings>
   <jai>
@@ -39,36 +52,6 @@
     <memoryCapacity>0.5</memoryCapacity>
     <memoryThreshold>0.75</memoryThreshold>
     <imageIOCache>false</imageIOCache>
-    <pngAcceleration>true</pngAcceleration>
-    <jpegAcceleration>true</jpegAcceleration>
-    <allowNativeMosaic>false</allowNativeMosaic>
-    <allowNativeWarp>false</allowNativeWarp>
-    <jaiext>
-      <jaiExtOperations class="sorted-set">
-        <string>Affine</string>
-        <string>BandCombine</string>
-        <string>BandMerge</string>
-        <string>BandSelect</string>
-        <string>Binarize</string>
-        <string>Border</string>
-        <string>ColorConvert</string>
-        <string>Crop</string>
-        <string>ErrorDiffusion</string>
-        <string>Format</string>
-        <string>ImageFunction</string>
-        <string>Lookup</string>
-        <string>Mosaic</string>
-        <string>Null</string>
-        <string>OrderedDither</string>
-        <string>Rescale</string>
-        <string>Scale</string>
-        <string>Stats</string>
-        <string>Translate</string>
-        <string>Warp</string>
-        <string>algebric</string>
-        <string>operationConst</string>
-      </jaiExtOperations>
-    </jaiext>
   </jai>
   <coverageAccess>
     <maxPoolSize>10</maxPoolSize>
@@ -80,7 +63,7 @@
   <metadata>
     <entry key="logRequestsEnabled">false</entry>
   </metadata>
-  <updateSequence>294</updateSequence>
+  <updateSequence>298</updateSequence>
   <featureTypeCacheSize>0</featureTypeCacheSize>
   <globalServices>true</globalServices>
   <xmlPostRequestLogBufferSize>1024</xmlPostRequestLogBufferSize>
