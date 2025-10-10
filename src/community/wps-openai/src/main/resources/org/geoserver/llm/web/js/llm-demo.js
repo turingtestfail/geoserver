@@ -1,4 +1,5 @@
 
+    window.addEventListener("DOMContentLoaded", () => {
     const { Map, View, layer, source, format, style, Overlay, proj } = ol;
     const { Tile: TileLayer, Vector: VectorLayer } = layer;
     const { OSM, Vector: VectorSource } = source;
@@ -27,14 +28,26 @@
       })
     });
 
-    const map = new Map({
+    const map = new ol.Map({
       target: "map",
       layers: [
-        new TileLayer({ source: new OSM() }),
+        new ol.layer.Tile({
+          source: new ol.source.TileWMS({
+            url: "http://localhost:8080/geoserver/wms",
+            params: {
+              'LAYERS': 'ne:countries',
+              'TILED': true,
+              'CRS': 'EPSG:4326'   // 👈 Important for WMS 1.1.1
+              // if your GeoServer layer is WMS 1.3.0, use 'CRS': 'EPSG:4326' instead
+            },
+            serverType: 'geoserver'
+          })
+        }),
         vectorLayer
       ],
-      view: new View({
-        center: fromLonLat([0, 20]),
+      view: new ol.View({
+        projection: 'EPSG:4326',         // 👈 Map view projection
+        center: [0, 20],                 // coordinates in degrees (lon, lat)
         zoom: 2
       })
     });
@@ -189,7 +202,7 @@ popupCloser.onclick = function() {
         if (parsed.cqls && parsed.cqls[0]) {
           appendMessage("ECQL Query: " + parsed.cqls[0].ecql, "bot");
 
-          const layerName = parsed.cqls[0].layerName;
+          /*const layerName = parsed.cqls[0].layerName;
           const div = document.createElement("div");
           div.className = "msg bot";
           div.innerHTML = `
@@ -234,7 +247,7 @@ popupCloser.onclick = function() {
                 attrContainer.innerHTML = `<span style="color:red">Failed to load attributes: ${err.message}</span>`;
               }
             }
-          });
+          });*/
 }
 
 
@@ -317,3 +330,4 @@ popupCloser.onclick = function() {
 
     // Greeting
     appendMessage("Hello! Ask me something — if GeoServer WPS returns GeoJSON, I'll draw it on the map. Use 'New Session' to reset.");
+});
