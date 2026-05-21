@@ -7,6 +7,7 @@
     <version>3.0.0-SNAPSHOT</version>
   </parent>
 
+  <groupId>org.geoserver.community</groupId>
   <artifactId>mcp</artifactId>
   <packaging>jar</packaging>
   <name>GeoServer MCP Community Extension</name>
@@ -14,6 +15,10 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.geoserver</groupId>
+      <artifactId>gs-rest</artifactId>
     </dependency>
   </dependencies>
 

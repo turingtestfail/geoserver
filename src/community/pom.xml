@@ -16,9 +16,6 @@
   <artifactId>community</artifactId>
   <packaging>pom</packaging>
   <name>Community Space</name>
-  <modules>
-    <module>mcp</module>
-  </modules>
 
   <dependencies>
     <!-- Do not add any other dependency here, modules shall explicitly declare their dependencies -->
