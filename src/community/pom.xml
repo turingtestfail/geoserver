@@ -167,6 +167,7 @@
         <module>singlestore</module>
         <module>pmtiles-store</module>
         <module>wps-openai</module>
+        <module>mcp</module>
         <module>png-wind</module>
       </modules>
     </profile>
@@ -540,6 +541,12 @@
       <id>wps-openai</id>
       <modules>
         <module>wps-openai</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>mcp</id>
+      <modules>
+        <module>mcp</module>
       </modules>
     </profile>
     <profile>
