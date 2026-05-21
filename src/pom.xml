@@ -121,7 +121,7 @@
     <jasypt.version>1.9.3</jasypt.version>
     <javac.version>9+181-r4173-1</javac.version>
     <javaapiforkml.version>3.0.11</javaapiforkml.version>
-    <jetty.version>12.1.9</jetty.version>
+    <jetty.version>12.1.8</jetty.version>
     <jmh.version>1.37</jmh.version>
     <joda-time.version>2.8.1</joda-time.version>
     <marlin.version>0.9.4.8</marlin.version>
@@ -164,7 +164,11 @@
     <!-- ================================ -->
     <!-- Test configuration              -->
     <!-- ================================ -->
-    <argLine>-Xmx${test.maxHeapSize} -enableassertions ${jvm.opts} -Djava.awt.headless=${java.awt.headless} -Dsun.java2d.d3d=${sun.java2d.d3d} -DremoteOwsTests=${remoteOwsTests} -DquietTests=${quietTests} -Dorg.geotools.image.test.enabled=${image.tests} -Dorg.geotools.image.test.interactive=${interactive.image} -Duser.timezone=${user.timezone} -Dwindows.leniency=${windows.leniency} -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:ReservedCodeCacheSize=240m</argLine>
+    <argLine>-Xmx${test.maxHeapSize} -enableassertions ${jvm.opts} -Djava.awt.headless=${java.awt.headless}
+			-Dsun.java2d.d3d=${sun.java2d.d3d} -DremoteOwsTests=${remoteOwsTests} -DquietTests=${quietTests}
+			-Dorg.geotools.image.test.enabled=${image.tests} -Dorg.geotools.image.test.interactive=${interactive.image}
+			-Duser.timezone=${user.timezone} -Dwindows.leniency=${windows.leniency} -XX:+TieredCompilation
+			-XX:TieredStopAtLevel=1 -XX:ReservedCodeCacheSize=240m</argLine>
     <image.tests>true</image.tests>
     <interactive.image>false</interactive.image>
     <quietTests>true</quietTests>
@@ -184,10 +188,10 @@
   <dependencyManagement>
     <dependencies>
       <!--
-        Import the GeoTools platform-dependencies BOM to get consistent third-party dependency versions
-        Provides managed versions for several libraries across projects, such as jackson, commons-logging/pool/lang3/cli/text/dbcp,
-        JTS, guava, imageio-ext, imageN, and more.
-      -->
+			  Import the GeoTools platform-dependencies BOM to get consistent third-party dependency versions
+			  Provides managed versions for several libraries across projects, such as jackson, commons-logging/pool/lang3/cli/text/dbcp,
+			  JTS, guava, imageio-ext, imageN, and more.
+			-->
       <dependency>
         <groupId>jakarta.xml.bind</groupId>
         <artifactId>jakarta.xml.bind-api</artifactId>
@@ -660,7 +664,7 @@
       </dependency>
       <dependency>
         <!-- this version should match with that used in com.jayway.jsonpath:json-path;
-        which provides runtime scope; however gs-auth has a compile time dependency-->
+				which provides runtime scope; however gs-auth has a compile time dependency-->
         <groupId>net.minidev</groupId>
         <artifactId>json-smart</artifactId>
         <version>2.6.0</version>
@@ -884,13 +888,13 @@
         <artifactId>xstream</artifactId>
         <version>1.4.21</version>
         <!-- this is marked as optional in the xstream 1.4.21 pom file so I don't think it is needed anymore
-        <exclusions>
-          <exclusion>
-            <artifactId>xpp3</artifactId>
-            <groupId>xpp3_min</groupId>
-          </exclusion>
-        </exclusions>
-        -->
+				<exclusions>
+				  <exclusion>
+					<artifactId>xpp3</artifactId>
+					<groupId>xpp3_min</groupId>
+				  </exclusion>
+				</exclusions>
+				-->
       </dependency>
       <dependency>
         <groupId>com.ibm.icu</groupId>
@@ -954,10 +958,10 @@
             <groupId>commons-logging</groupId>
           </exclusion>
         </exclusions>
-        <!-- Needed to solve NamespaceHandler class org.apache.xbean.spring.context.v2.XBeanNamespaceHandler 
-             for namespace [http://activemq.apache.org/schema/core] not found ClassNotFoundException: 
-             org.apache.xbean.spring.context.v2.XBeanNamespaceHandler
-        -->
+        <!-- Needed to solve NamespaceHandler class org.apache.xbean.spring.context.v2.XBeanNamespaceHandler
+					 for namespace [http://activemq.apache.org/schema/core] not found ClassNotFoundException:
+					 org.apache.xbean.spring.context.v2.XBeanNamespaceHandler
+				-->
       </dependency>
       <dependency>
         <groupId>it.geosolutions</groupId>
@@ -1201,7 +1205,7 @@
     </extensions>
 
     <!-- TODO: the resources stuff hardcodes paths to source + test directories,
-      we should be able to use some properties here -->
+		  we should be able to use some properties here -->
     <resources>
       <resource>
         <directory>${basedir}/src/main/java</directory>
@@ -1447,12 +1451,17 @@
           <testFailureIgnore>${allow.test.failure.ignore}</testFailureIgnore>
           <excludedGroups>${test.excludedGroups}</excludedGroups>
           <!-- Adding opens for build to work.
-               Needed for mock frameworks: java.base/java.lang
-               Additional needs for XStream:  java.base/java.util, java.base/java.lang.reflect, java.base/java.text, java.desktop/java.awt.font
-               Additional needs for JAI: java.desktop/sun.awt.image 
-               Additional needs for LDAP tests:  java.naming/com.sun.jndi.ldap
-            -->
-          <argLine>@{argLine} -XX:+IgnoreUnrecognizedVMOptions -Dfile.encoding=UTF-8 --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED  --add-opens=java.desktop/sun.awt.image=ALL-UNNAMED --add-opens=java.naming/com.sun.jndi.ldap=ALL-UNNAMED</argLine>
+						 Needed for mock frameworks: java.base/java.lang
+						 Additional needs for XStream:  java.base/java.util, java.base/java.lang.reflect, java.base/java.text, java.desktop/java.awt.font
+						 Additional needs for JAI: java.desktop/sun.awt.image
+						 Additional needs for LDAP tests:  java.naming/com.sun.jndi.ldap
+					  -->
+          <argLine>@{argLine} -XX:+IgnoreUnrecognizedVMOptions -Dfile.encoding=UTF-8
+						--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED
+						--add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED
+						--add-opens=java.desktop/java.awt.font=ALL-UNNAMED
+						--add-opens=java.desktop/sun.awt.image=ALL-UNNAMED
+						--add-opens=java.naming/com.sun.jndi.ldap=ALL-UNNAMED</argLine>
         </configuration>
       </plugin>
 
@@ -1487,15 +1496,15 @@
             <file>
               <name>.settings/org.eclipse.jdt.core.prefs</name>
               <content>eclipse.preferences.version=1
-              org.eclipse.jdt.core.compiler.codegen.targetPlatform=17
-              org.eclipse.jdt.core.compiler.compliance=17
-              org.eclipse.jdt.core.compiler.source=17
-              org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
-              org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
-              org.eclipse.jdt.core.compiler.problem.enablePreviewFeatures=disabled
-              org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
-              org.eclipse.jdt.core.compiler.problem.reportPreviewFeatures=warning
-              org.eclipse.jdt.core.compiler.release=enabled</content>
+								org.eclipse.jdt.core.compiler.codegen.targetPlatform=17
+								org.eclipse.jdt.core.compiler.compliance=17
+								org.eclipse.jdt.core.compiler.source=17
+								org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
+								org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
+								org.eclipse.jdt.core.compiler.problem.enablePreviewFeatures=disabled
+								org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
+								org.eclipse.jdt.core.compiler.problem.reportPreviewFeatures=warning
+								org.eclipse.jdt.core.compiler.release=enabled</content>
             </file>
           </additionalConfig>
         </configuration>
@@ -1568,19 +1577,19 @@
           <injectAllReactorProjects>true</injectAllReactorProjects>
           <runOnlyOnce>${git.commit.runOnlyOnce}</runOnlyOnce>
           <!--
-       In order to use native git (3+ times faster) add the following in ~/.m2/settings.xml
-       <profiles>
-         <profile>
-           <id>gitNative</id>
-           <properties>
-             <git.commit.useNative>true</git.commit.useNative>
-           </properties>
-         </profile>
-       <profiles>
-       <activeProfiles>
-         <activeProfile>gitNative</activeProfile>
-       </activeProfiles>
-       -->
+				 In order to use native git (3+ times faster) add the following in ~/.m2/settings.xml
+				 <profiles>
+				   <profile>
+					 <id>gitNative</id>
+					 <properties>
+					   <git.commit.useNative>true</git.commit.useNative>
+					 </properties>
+				   </profile>
+				 <profiles>
+				 <activeProfiles>
+				   <activeProfile>gitNative</activeProfile>
+				 </activeProfiles>
+				 -->
           <useNativeGit>${git.commit.useNative}</useNativeGit>
         </configuration>
       </plugin>
@@ -1724,15 +1733,15 @@
           <execution>
             <id>enforce-maven-version</id>
             <!-- Enforcing a minimum Maven version is crucial to ensure that:
-                 - Plugin version resolution works as expected: Different Maven versions
-                   may resolve plugin versions differently due to changes in the default
-                   lifecycle mappings, dependency resolution behavior, and plugin inheritance.
-                 - Features and bug fixes required by newer plugins are available: For example,
-                   some plugins (e.g., surefire-plugin 3.x) require Maven 3.6+ or 3.8+.
-                 - Consistent builds across environments: Without enforcing a Maven version,
-                   developers or CI/CD pipelines using different Maven versions may face
-                   unexpected build failures or inconsistencies.
-            -->
+							 - Plugin version resolution works as expected: Different Maven versions
+							   may resolve plugin versions differently due to changes in the default
+							   lifecycle mappings, dependency resolution behavior, and plugin inheritance.
+							 - Features and bug fixes required by newer plugins are available: For example,
+							   some plugins (e.g., surefire-plugin 3.x) require Maven 3.6+ or 3.8+.
+							 - Consistent builds across environments: Without enforcing a Maven version,
+							   developers or CI/CD pipelines using different Maven versions may face
+							   unexpected build failures or inconsistencies.
+						-->
             <goals>
               <goal>enforce</goal>
             </goals>
@@ -1921,19 +1930,19 @@
                 <version>4.4</version>
               </docletArtifact>
               <additionalparam>-inferrel -inferdep -quiet -hide java.* -collpackages java.util.* -qualify
-          -postfixpackage -nodefontsize 9
-          -nodefontpackagesize 7
-          -link https://docs.oracle.com/en/java/javase/17/docs/api/
-          -link https://javaee.github.io/javaee-spec/javadocs/
-          -link https://unitsofmeasurement.github.io/unit-api/apidocs/
-          -link https://locationtech.github.io/jts/javadoc/
-          -link http://xmlgraphics.apache.org/batik/javadoc/
-          -link https://docs.geotools.org/latest/javadocs/
-          -link https://freemarker.sourceforge.io/docs/api/
-          -link https://nightlies.apache.org/wicket/apidocs/9.x/
-          -tag generated:tfmc:
-          -tag todo:tfmc:TODO:
-          -tag revisit:tfmc:TODO:GENERATED:</additionalparam>
+								-postfixpackage -nodefontsize 9
+								-nodefontpackagesize 7
+								-link https://docs.oracle.com/en/java/javase/17/docs/api/
+								-link https://javaee.github.io/javaee-spec/javadocs/
+								-link https://unitsofmeasurement.github.io/unit-api/apidocs/
+								-link https://locationtech.github.io/jts/javadoc/
+								-link http://xmlgraphics.apache.org/batik/javadoc/
+								-link https://docs.geotools.org/latest/javadocs/
+								-link https://freemarker.sourceforge.io/docs/api/
+								-link https://nightlies.apache.org/wicket/apidocs/9.x/
+								-tag generated:tfmc:
+								-tag todo:tfmc:TODO:
+								-tag revisit:tfmc:TODO:GENERATED:</additionalparam>
             </configuration>
           </plugin>
         </plugins>
@@ -2091,9 +2100,9 @@
     </profile>
 
     <!--
-       Dependency vulnerability checks. Run with:
-       mvn initialize dependency-check:aggregate -Prelease,pending,dependencycheck -nsu -fae -DnvdApiKey=<your nvd api key>
-    -->
+		   Dependency vulnerability checks. Run with:
+		   mvn initialize dependency-check:aggregate -Prelease,pending,dependencycheck -nsu -fae -DnvdApiKey=<your nvd api key>
+		-->
     <profile>
       <id>dependencycheck</id>
       <build>
@@ -2194,98 +2203,99 @@
               <fork>false</fork>
               <compilerArgs>
                 <arg>-XDcompilePolicy=simple</arg>
-                <arg>-Xplugin:ErrorProne -XepExcludedPaths:\Q${project.build.directory}\E/generated-sources/.*  \
-                -Xep:DeadException:WARN \
-                -Xep:GuardedBy:OFF \
-                -Xep:BanJNDI:WARN \
-                -Xep:AlmostJavadoc:OFF \
-                -Xep:AlreadyChecked:OFF \
-                -Xep:AnnotateFormatMethod:OFF \
-                -Xep:AssertionFailureIgnored:OFF \
-                -Xep:AssertThrowsMultipleStatements:OFF \
-                -Xep:BadImport:OFF \
-                -Xep:BadInstanceof:OFF \
-                -Xep:CatchFail:OFF \
-                -Xep:ClassInitializationDeadlock:OFF \
-                -Xep:CollectionUndefinedEquality:OFF \
-                -Xep:DateFormatConstant:OFF \
-                -Xep:DefaultCharset:OFF \
-                -Xep:DirectInvocationOnMock:OFF \
-                -Xep:DoNotCallSuggester:OFF \
-                -Xep:DoubleCheckedLocking:OFF \
-                -Xep:DuplicateDateFormatField:OFF \
-                -Xep:EmptyBlockTag:OFF \
-                -Xep:EmptyCatch:OFF \
-                -Xep:EnumOrdinal:OFF \
-                -Xep:EqualsGetClass:OFF \
-                -Xep:EqualsUnsafeCast:OFF \
-                -Xep:ExtendingJUnitAssert:OFF \
-                -Xep:Finalize:OFF \
-                -Xep:Finally:OFF \
-                -Xep:FloatCast:OFF \
-                -Xep:FloatingPointLiteralPrecision:OFF \
-                -Xep:FutureReturnValueIgnored:OFF \
-                -Xep:HidingField:OFF \
-                -Xep:ImmutableEnumChecker:OFF \
-                -Xep:InconsistentCapitalization:OFF \
-                -Xep:InconsistentHashCode:OFF \
-                -Xep:InlineFormatString:OFF \
-                -Xep:InlineMeSuggester:OFF \
-                -Xep:IntLongMath:OFF \
-                -Xep:InvalidBlockTag:OFF \
-                -Xep:InvalidInlineTag:OFF \
-                -Xep:InvalidLink:OFF \
-                -Xep:InvalidParam:OFF \
-                -Xep:InvalidThrows:OFF \
-                -Xep:JavaLangClash:OFF \
-                -Xep:JavaTimeDefaultTimeZone:OFF \
-                -Xep:JavaUtilDate:OFF \
-                -Xep:JdkObsolete:OFF \
-                -Xep:JUnitAmbiguousTestClass:OFF \
-                -Xep:LockOnNonEnclosingClassLiteral:OFF \
-                -Xep:LongDoubleConversion:OFF \
-                -Xep:MalformedInlineTag:OFF \
-                -Xep:MissingFail:OFF \
-                -Xep:MissingSummary:OFF \
-                -Xep:MixedMutabilityReturnType:OFF \
-                -Xep:ModifiedButNotUsed:OFF \
-                -Xep:MutablePublicArray:OFF \
-                -Xep:NarrowCalculation:OFF \
-                -Xep:NarrowingCompoundAssignment:OFF \
-                -Xep:NonApiType:OFF \
-                -Xep:NonCanonicalType:OFF \
-                -Xep:NonOverridingEquals:OFF \
-                -Xep:NotJavadoc:OFF \
-                -Xep:ObjectEqualsForPrimitives:OFF \
-                -Xep:OperatorPrecedence:OFF \
-                -Xep:OverrideThrowableToString:OFF \
-                -Xep:ProtectedMembersInFinalClass:OFF \
-                -Xep:ReferenceEquality:OFF \
-                -Xep:SelfAssertion:OFF \
-                -Xep:ShortCircuitBoolean:OFF \
-                -Xep:StaticAssignmentInConstructor:OFF \
-                -Xep:StringCaseLocaleUsage:OFF \
-                -Xep:StringCharset:OFF \
-                -Xep:StringSplitter:OFF \
-                -Xep:SynchronizeOnNonFinalField:OFF \
-                -Xep:ThreadLocalUsage:OFF \
-                -Xep:ThreadPriorityCheck:OFF \
-                -Xep:ThreeLetterTimeZoneID:OFF \
-                -Xep:TypeParameterShadowing:OFF \
-                -Xep:TypeParameterUnusedInFormals:OFF \
-                -Xep:UndefinedEquals:OFF \
-                -Xep:UnnecessaryAssignment:OFF \
-                -Xep:UnnecessaryParentheses:OFF \
-                -Xep:UnnecessaryStringBuilder:OFF \
-                -Xep:UnrecognisedJavadocTag:OFF \
-                -Xep:UnsynchronizedOverridesSynchronized:OFF \
-                -Xep:UnusedLabel:OFF \
-                -Xep:UnusedMethod:OFF \
-                -Xep:UnusedNestedClass:OFF \
-                -Xep:UnusedVariable:OFF \
-                -Xep:UnnecessaryLambda:OFF \
-                -Xep:VariableNameSameAsType:OFF \
-                ${errorProneFlags}</arg>
+                <arg>-Xplugin:ErrorProne
+									-XepExcludedPaths:\Q${project.build.directory}\E/generated-sources/.* \
+									-Xep:DeadException:WARN \
+									-Xep:GuardedBy:OFF \
+									-Xep:BanJNDI:WARN \
+									-Xep:AlmostJavadoc:OFF \
+									-Xep:AlreadyChecked:OFF \
+									-Xep:AnnotateFormatMethod:OFF \
+									-Xep:AssertionFailureIgnored:OFF \
+									-Xep:AssertThrowsMultipleStatements:OFF \
+									-Xep:BadImport:OFF \
+									-Xep:BadInstanceof:OFF \
+									-Xep:CatchFail:OFF \
+									-Xep:ClassInitializationDeadlock:OFF \
+									-Xep:CollectionUndefinedEquality:OFF \
+									-Xep:DateFormatConstant:OFF \
+									-Xep:DefaultCharset:OFF \
+									-Xep:DirectInvocationOnMock:OFF \
+									-Xep:DoNotCallSuggester:OFF \
+									-Xep:DoubleCheckedLocking:OFF \
+									-Xep:DuplicateDateFormatField:OFF \
+									-Xep:EmptyBlockTag:OFF \
+									-Xep:EmptyCatch:OFF \
+									-Xep:EnumOrdinal:OFF \
+									-Xep:EqualsGetClass:OFF \
+									-Xep:EqualsUnsafeCast:OFF \
+									-Xep:ExtendingJUnitAssert:OFF \
+									-Xep:Finalize:OFF \
+									-Xep:Finally:OFF \
+									-Xep:FloatCast:OFF \
+									-Xep:FloatingPointLiteralPrecision:OFF \
+									-Xep:FutureReturnValueIgnored:OFF \
+									-Xep:HidingField:OFF \
+									-Xep:ImmutableEnumChecker:OFF \
+									-Xep:InconsistentCapitalization:OFF \
+									-Xep:InconsistentHashCode:OFF \
+									-Xep:InlineFormatString:OFF \
+									-Xep:InlineMeSuggester:OFF \
+									-Xep:IntLongMath:OFF \
+									-Xep:InvalidBlockTag:OFF \
+									-Xep:InvalidInlineTag:OFF \
+									-Xep:InvalidLink:OFF \
+									-Xep:InvalidParam:OFF \
+									-Xep:InvalidThrows:OFF \
+									-Xep:JavaLangClash:OFF \
+									-Xep:JavaTimeDefaultTimeZone:OFF \
+									-Xep:JavaUtilDate:OFF \
+									-Xep:JdkObsolete:OFF \
+									-Xep:JUnitAmbiguousTestClass:OFF \
+									-Xep:LockOnNonEnclosingClassLiteral:OFF \
+									-Xep:LongDoubleConversion:OFF \
+									-Xep:MalformedInlineTag:OFF \
+									-Xep:MissingFail:OFF \
+									-Xep:MissingSummary:OFF \
+									-Xep:MixedMutabilityReturnType:OFF \
+									-Xep:ModifiedButNotUsed:OFF \
+									-Xep:MutablePublicArray:OFF \
+									-Xep:NarrowCalculation:OFF \
+									-Xep:NarrowingCompoundAssignment:OFF \
+									-Xep:NonApiType:OFF \
+									-Xep:NonCanonicalType:OFF \
+									-Xep:NonOverridingEquals:OFF \
+									-Xep:NotJavadoc:OFF \
+									-Xep:ObjectEqualsForPrimitives:OFF \
+									-Xep:OperatorPrecedence:OFF \
+									-Xep:OverrideThrowableToString:OFF \
+									-Xep:ProtectedMembersInFinalClass:OFF \
+									-Xep:ReferenceEquality:OFF \
+									-Xep:SelfAssertion:OFF \
+									-Xep:ShortCircuitBoolean:OFF \
+									-Xep:StaticAssignmentInConstructor:OFF \
+									-Xep:StringCaseLocaleUsage:OFF \
+									-Xep:StringCharset:OFF \
+									-Xep:StringSplitter:OFF \
+									-Xep:SynchronizeOnNonFinalField:OFF \
+									-Xep:ThreadLocalUsage:OFF \
+									-Xep:ThreadPriorityCheck:OFF \
+									-Xep:ThreeLetterTimeZoneID:OFF \
+									-Xep:TypeParameterShadowing:OFF \
+									-Xep:TypeParameterUnusedInFormals:OFF \
+									-Xep:UndefinedEquals:OFF \
+									-Xep:UnnecessaryAssignment:OFF \
+									-Xep:UnnecessaryParentheses:OFF \
+									-Xep:UnnecessaryStringBuilder:OFF \
+									-Xep:UnrecognisedJavadocTag:OFF \
+									-Xep:UnsynchronizedOverridesSynchronized:OFF \
+									-Xep:UnusedLabel:OFF \
+									-Xep:UnusedMethod:OFF \
+									-Xep:UnusedNestedClass:OFF \
+									-Xep:UnusedVariable:OFF \
+									-Xep:UnnecessaryLambda:OFF \
+									-Xep:VariableNameSameAsType:OFF \
+									${errorProneFlags}</arg>
                 <arg>-Xlint:${lint}</arg>
                 <arg>-Werror</arg>
                 <arg>-Xmaxwarns</arg>
@@ -2415,7 +2425,7 @@
       </build>
     </profile>
     <!-- GitHub build profiles enabled by Github actions. Can be used to turn off tests that
-        are unreliable in a Github build-->
+			are unreliable in a Github build-->
     <profile>
       <id>macos-github-build</id>
       <build>

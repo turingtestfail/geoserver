@@ -1933,6 +1933,16 @@
       </dependencies>
     </profile>
     <profile>
+      <id>mcp</id>
+      <dependencies>
+        <dependency>
+          <groupId>org.geoserver.community</groupId>
+          <artifactId>mcp</artifactId>
+          <version>${project.version}</version>
+        </dependency>
+      </dependencies>
+    </profile>
+    <profile>
       <id>wcs10</id>
       <dependencies>
         <dependency>

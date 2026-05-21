@@ -16,6 +16,9 @@
   <artifactId>community</artifactId>
   <packaging>pom</packaging>
   <name>Community Space</name>
+  <modules>
+    <module>mcp</module>
+  </modules>
 
   <dependencies>
     <!-- Do not add any other dependency here, modules shall explicitly declare their dependencies -->
@@ -169,6 +172,7 @@
         <module>singlestore</module>
         <module>pmtiles-store</module>
         <module>wps-openai</module>
+        <module>mcp</module>
         <module>png-wind</module>
       </modules>
     </profile>
@@ -548,6 +552,12 @@
       <id>wps-openai</id>
       <modules>
         <module>wps-openai</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>mcp</id>
+      <modules>
+        <module>mcp</module>
       </modules>
     </profile>
     <profile>
