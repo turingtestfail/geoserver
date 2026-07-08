@@ -124,7 +124,7 @@
     <jasypt.version>1.9.3</jasypt.version>
     <javac.version>9+181-r4173-1</javac.version>
     <javaapiforkml.version>3.0.11</javaapiforkml.version>
-    <jetty.version>12.1.11</jetty.version>
+    <jetty.version>12.1.9</jetty.version>
     <jmh.version>1.37</jmh.version>
     <joda-time.version>2.8.1</joda-time.version>
     <marlin.version>0.9.4.8</marlin.version>
@@ -170,7 +170,11 @@
     <!-- ================================ -->
     <!-- Test configuration              -->
     <!-- ================================ -->
-    <argLine>-Xmx${test.maxHeapSize} -enableassertions ${jvm.opts} -Djava.awt.headless=${java.awt.headless} -Dsun.java2d.d3d=${sun.java2d.d3d} -DremoteOwsTests=${remoteOwsTests} -DquietTests=${quietTests} -Dorg.geotools.image.test.enabled=${image.tests} -Dorg.geotools.image.test.interactive=${interactive.image} -Duser.timezone=${user.timezone} -Dwindows.leniency=${windows.leniency} -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:ReservedCodeCacheSize=240m</argLine>
+    <argLine>-Xmx${test.maxHeapSize} -enableassertions ${jvm.opts} -Djava.awt.headless=${java.awt.headless}
+			-Dsun.java2d.d3d=${sun.java2d.d3d} -DremoteOwsTests=${remoteOwsTests} -DquietTests=${quietTests}
+			-Dorg.geotools.image.test.enabled=${image.tests} -Dorg.geotools.image.test.interactive=${interactive.image}
+			-Duser.timezone=${user.timezone} -Dwindows.leniency=${windows.leniency} -XX:+TieredCompilation
+			-XX:TieredStopAtLevel=1 -XX:ReservedCodeCacheSize=240m</argLine>
     <image.tests>true</image.tests>
     <interactive.image>false</interactive.image>
     <quietTests>true</quietTests>
@@ -190,10 +194,10 @@
   <dependencyManagement>
     <dependencies>
       <!--
-        Import the GeoTools platform-dependencies BOM to get consistent third-party dependency versions
-        Provides managed versions for several libraries across projects, such as jackson, commons-logging/pool/lang3/cli/text/dbcp,
-        JTS, guava, imageio-ext, imageN, and more.
-      -->
+			  Import the GeoTools platform-dependencies BOM to get consistent third-party dependency versions
+			  Provides managed versions for several libraries across projects, such as jackson, commons-logging/pool/lang3/cli/text/dbcp,
+			  JTS, guava, imageio-ext, imageN, and more.
+			-->
       <dependency>
         <groupId>jakarta.xml.bind</groupId>
         <artifactId>jakarta.xml.bind-api</artifactId>
@@ -666,7 +670,7 @@
       </dependency>
       <dependency>
         <!-- this version should match with that used in com.jayway.jsonpath:json-path;
-        which provides runtime scope; however gs-auth has a compile time dependency-->
+				which provides runtime scope; however gs-auth has a compile time dependency-->
         <groupId>net.minidev</groupId>
         <artifactId>json-smart</artifactId>
         <version>2.6.0</version>
@@ -889,13 +893,13 @@
         <artifactId>xstream</artifactId>
         <version>1.4.21</version>
         <!-- this is marked as optional in the xstream 1.4.21 pom file so I don't think it is needed anymore
-        <exclusions>
-          <exclusion>
-            <artifactId>xpp3</artifactId>
-            <groupId>xpp3_min</groupId>
-          </exclusion>
-        </exclusions>
-        -->
+				<exclusions>
+				  <exclusion>
+					<artifactId>xpp3</artifactId>
+					<groupId>xpp3_min</groupId>
+				  </exclusion>
+				</exclusions>
+				-->
       </dependency>
       <dependency>
         <groupId>com.ibm.icu</groupId>
