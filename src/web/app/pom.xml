@@ -25,6 +25,11 @@
     <jetty.run.daemon>false</jetty.run.daemon>
   </properties>
   <dependencies>
+      <dependency>
+          <groupId>org.geoinfra</groupId>
+          <artifactId>analytics-process</artifactId>
+          <version>0.1.0</version>
+      </dependency>
     <dependency>
       <groupId>org.marlin</groupId>
       <artifactId>marlin</artifactId>

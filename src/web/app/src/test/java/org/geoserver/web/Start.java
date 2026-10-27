@@ -58,7 +58,6 @@ public class Start {
 
     public static void main(String[] args) {
         final Server jettyServer = new Server();
-
         HttpConfiguration httpConfig = new HttpConfiguration();
         try (ServerConnector http = new ServerConnector(jettyServer, new HttpConnectionFactory(httpConfig));
                 ServerConnector https = getHTTPSConnector(jettyServer, httpConfig)) {

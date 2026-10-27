@@ -42,7 +42,7 @@ public class GdalWrapper extends AbstractToolWrapper {
             // TODO: test with other GDAL versions
             List<String> commands = new ArrayList<>();
             commands.add(getExecutable());
-            commands.add("--long-usage");
+            commands.add("--formats");
 
             Set<String> formats = new HashSet<>();
             addFormats(commands, formats);
@@ -64,7 +64,7 @@ public class GdalWrapper extends AbstractToolWrapper {
         StringBuilder sb = new StringBuilder();
         run(commands, sb);
 
-        Pattern formatRegExp = Pattern.compile("^\\s{2}(\\w+)\\:\\s");
+        Pattern formatRegExp = Pattern.compile("^\\s*([A-Za-z0-9_]+)\\s+-");
         String[] lines = sb.toString().split("\n");
         for (String line : lines) {
             Matcher formatMatcher = formatRegExp.matcher(line);

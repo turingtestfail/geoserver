@@ -24,6 +24,7 @@ import org.geoserver.ogr.core.FormatAdapter;
 import org.geoserver.ogr.core.FormatConverter;
 import org.geoserver.ogr.core.ToolWrapper;
 import org.geoserver.ogr.core.ToolWrapperFactory;
+import org.geoserver.platform.ExtensionPriority;
 import org.geoserver.platform.ServiceException;
 import org.geoserver.util.IOUtils;
 import org.geoserver.wcs.WCSInfo;
@@ -58,7 +59,7 @@ import org.vfny.geoserver.wcs.WcsException;
  * @author Stefano Costa, GeoSolutions
  */
 public class GdalCoverageResponseDelegate
-        implements CoverageResponseDelegate, FormatConverter, GeoServerLifecycleHandler {
+        implements CoverageResponseDelegate, FormatConverter, ExtensionPriority, GeoServerLifecycleHandler {
 
     private static final GeoTiffFormat GEOTIF_FORMAT = new GeoTiffFormat();
 
@@ -195,7 +196,7 @@ public class GdalCoverageResponseDelegate
         if (formats == null || formats.isEmpty()) {
             throw new IllegalArgumentException("No formats provided");
         }
-
+        System.out.println(formats.stream().map(f -> String.format("Format{tool='%s', geo='%s', ext='%s', mime='%s', type=%s, single=%b, options=%s}", f.getToolFormat(), f.getGeoserverFormat(), f.getFileExtension(), f.getMimeType(), f.getType(), f.isSingleFile(), f.getOptions())).toList());
         formatsLock.writeLock().lock();
         try {
             clearFormatsInternal();
@@ -288,6 +289,7 @@ public class GdalCoverageResponseDelegate
     public void encode(
             GridCoverage2D coverage, String outputFormat, Map<String, String> econdingParameters, OutputStream output)
             throws ServiceException, IOException {
+        System.out.println("Encoding from within GDALCoverageResponseDelegate");
         Utilities.ensureNonNull("sourceCoverage", coverage);
 
         // figure out which output format we're going to generate
@@ -301,7 +303,8 @@ public class GdalCoverageResponseDelegate
         // content
         File tempGS = IOUtils.createTempDirectory("gdaltmpin");
         File tempGDAL = IOUtils.createTempDirectory("gdaltmpout");
-
+        System.out.println("tempGS: "+tempGS.getAbsolutePath());
+        System.out.println("tempGDAL: "+tempGDAL.getAbsolutePath());
         // build the gdal wrapper used to run the gdal_translate commands
         ToolWrapper wrapper = gdalWrapperFactory.createWrapper(gdalTranslateExecutable, environment);
 
@@ -316,6 +319,7 @@ public class GdalCoverageResponseDelegate
             final CoordinateReferenceSystem crs = coverage.getCoordinateReferenceSystem();
             outputFile =
                     wrapper.convert(intermediate, tempGDAL, coverage.getName().toString(), format, crs);
+            System.out.println("Output file staged as "+outputFile.getAbsolutePath());
 
             // wipe out the input dir contents
             IOUtils.emptyDirectory(tempGS);
@@ -324,6 +328,7 @@ public class GdalCoverageResponseDelegate
             if (format.isSingleFile()) {
                 try (FileInputStream fis = new FileInputStream(outputFile)) {
                     org.apache.commons.io.IOUtils.copy(fis, output);
+                    System.out.println("Output file copied as "+outputFile.getAbsolutePath());
                 }
             } else {
                 // scan the output directory and zip it all
@@ -427,5 +432,10 @@ public class GdalCoverageResponseDelegate
     @Override
     public void onReload() {
         available.set(null);
+    }
+
+    @Override
+    public int getPriority() {
+        return ExtensionPriority.HIGHEST;
     }
 }
